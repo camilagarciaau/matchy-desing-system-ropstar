@@ -1,0 +1,60 @@
+:root,
+.dark {
+  --matchy-motion-fast: 120ms;
+  --matchy-motion-base: 200ms;
+  --matchy-motion-slow: 320ms;
+  --matchy-easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --matchy-easing-enter: ease-out;
+  --matchy-easing-exit: ease-in;
+}
+
+@keyframes matchy-motion-nudge {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(1.5rem);
+  }
+}
+
+.matchy-motion-preview {
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--matchy-radius-sm);
+  background: var(--matchy-color-leather);
+}
+
+.matchy-motion-preview-fast {
+  animation: matchy-motion-nudge var(--matchy-motion-fast)
+    var(--matchy-easing-standard) infinite alternate;
+}
+
+.matchy-motion-preview-base {
+  animation: matchy-motion-nudge var(--matchy-motion-base)
+    var(--matchy-easing-standard) infinite alternate;
+}
+
+.matchy-motion-preview-slow {
+  animation: matchy-motion-nudge var(--matchy-motion-slow)
+    var(--matchy-easing-standard) infinite alternate;
+}
+
+.matchy-motion-preview-enter {
+  animation: matchy-motion-nudge var(--matchy-motion-base)
+    var(--matchy-easing-enter) infinite alternate;
+}
+
+.matchy-motion-preview-exit {
+  animation: matchy-motion-nudge var(--matchy-motion-base)
+    var(--matchy-easing-exit) infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .matchy-motion-preview-fast,
+  .matchy-motion-preview-base,
+  .matchy-motion-preview-slow,
+  .matchy-motion-preview-enter,
+  .matchy-motion-preview-exit {
+    animation: none;
+  }
+}

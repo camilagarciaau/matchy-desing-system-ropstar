@@ -1,0 +1,107 @@
+:root,
+.dark {
+  /* Manrope (Degular) — primitives */
+  --matchy-font-family-primary: "Manrope Variable", sans-serif; /* future: Degular */
+  --matchy-font-size-100: 12px;
+  --matchy-font-size-200: 14px;
+  --matchy-font-size-300: 16px;
+  --matchy-font-size-600: 24px;
+  --matchy-font-size-700: 32px;
+  --matchy-font-weight-regular: 400;
+  --matchy-font-weight-bold: 700;
+  --matchy-line-height-tight: 16px;
+  --matchy-line-height-base: 24px;
+  --matchy-line-height-relaxed: 32px;
+  --matchy-letter-spacing-tight: -1%;
+  --matchy-letter-spacing-normal: 0%;
+
+  /* Manrope (Degular) — semantic */
+  --matchy-heading-1: var(--matchy-font-family-primary) bold
+    var(--matchy-font-size-700); /* 32px */
+  --matchy-heading-2: var(--matchy-font-family-primary) bold
+    var(--matchy-font-size-600); /* 24px */
+  --matchy-label-1: var(--matchy-font-family-primary) regular
+    var(--matchy-font-size-300);
+  --matchy-label-2: var(--matchy-font-family-primary) bold
+    var(--matchy-font-size-300);
+  --matchy-label-3: var(--matchy-font-family-primary) bold
+    var(--matchy-font-size-200); /* exception */
+  --matchy-paragraph: var(--matchy-font-family-primary) regular
+    var(--matchy-font-size-300);
+  --matchy-button-primary: var(--matchy-font-family-primary) bold
+    var(--matchy-font-size-300);
+  --matchy-button-secondary: var(--matchy-font-family-primary) bold
+    var(--matchy-font-size-100); /* exception */
+}
+
+.matchy-heading-1 {
+  font-family: var(--matchy-font-family-primary); /* future: Degular */
+  font-weight: var(--matchy-font-weight-bold);
+  font-size: var(--matchy-font-size-700);
+  letter-spacing: var(--matchy-letter-spacing-tight);
+  line-height: var(--matchy-line-height-relaxed);
+}
+
+.matchy-heading-2 {
+  font-family: var(--matchy-font-family-primary); /* future: Degular */
+  font-weight: var(--matchy-font-weight-bold);
+  font-size: var(--matchy-font-size-600);
+  letter-spacing: var(--matchy-letter-spacing-tight);
+  line-height: var(--matchy-line-height-relaxed);
+}
+
+.matchy-label-1 {
+  font-family: var(--matchy-font-family-primary); /* future: Degular */
+  font-weight: var(--matchy-font-weight-regular);
+  font-size: var(--matchy-font-size-300);
+  letter-spacing: var(--matchy-letter-spacing-normal);
+  line-height: var(--matchy-line-height-tight);
+}
+
+.matchy-label-2 {
+  font-family: var(--matchy-font-family-primary); /* future: Degular */
+  font-weight: var(--matchy-font-weight-bold);
+  font-size: var(--matchy-font-size-300);
+  letter-spacing: var(--matchy-letter-spacing-normal);
+  line-height: var(--matchy-line-height-tight);
+}
+
+.matchy-label-3 {
+  font-family: var(--matchy-font-family-primary); /* future: Degular */
+  font-weight: var(--matchy-font-weight-bold);
+  font-size: var(--matchy-font-size-200);
+  letter-spacing: var(--matchy-letter-spacing-normal);
+  line-height: var(--matchy-line-height-tight);
+}
+
+.matchy-paragraph {
+  font-family: var(--matchy-font-family-primary); /* future: Degular */
+  font-weight: var(--matchy-font-weight-regular);
+  font-size: var(--matchy-font-size-300);
+  letter-spacing: var(--matchy-letter-spacing-normal);
+  line-height: var(--matchy-line-height-base);
+}
+
+.matchy-button-primary {
+  font-family: var(--matchy-font-family-primary); /* future: Degular */
+  font-weight: var(--matchy-font-weight-bold);
+  font-size: var(--matchy-font-size-300);
+  letter-spacing: var(--matchy-letter-spacing-normal);
+  line-height: var(--matchy-line-height-tight);
+}
+
+.matchy-button-secondary {
+  font-family: var(--matchy-font-family-primary); /* future: Degular */
+  font-weight: var(--matchy-font-weight-bold);
+  font-size: var(--matchy-font-size-100);
+  letter-spacing: var(--matchy-letter-spacing-normal);
+  line-height: var(--matchy-line-height-tight);
+}
+
+body {
+  font-family: var(--matchy-font-family-primary); /* future: Degular */
+  font-size: var(--matchy-font-size-300);
+  font-weight: var(--matchy-font-weight-regular);
+  line-height: var(--matchy-line-height-base);
+  letter-spacing: var(--matchy-letter-spacing-normal);
+}

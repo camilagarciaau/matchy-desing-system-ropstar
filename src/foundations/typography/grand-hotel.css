@@ -1,0 +1,31 @@
+:root,
+.dark {
+  /* Grand Hotel (Halaney) — primitives */
+  --matchy-font-family-secondary: "Grand Hotel", cursive; /* future: Halaney */
+  --matchy-font-size-500: 20px;
+  --matchy-font-size-700: 32px;
+  --matchy-line-height-relaxed: 32px;
+  --matchy-line-height-loose: 40px;
+
+  /* Grand Hotel (Halaney) — semantic */
+  --matchy-emotional-lg: var(--matchy-font-family-secondary) regular
+    var(--matchy-font-size-700); /* 32px */
+  --matchy-emotional-sm: var(--matchy-font-family-secondary) regular
+    var(--matchy-font-size-500); /* 20px */
+}
+
+.matchy-emotional-lg {
+  font-family: var(--matchy-font-family-secondary); /* future: Halaney */
+  font-weight: var(--matchy-font-weight-regular);
+  font-size: var(--matchy-font-size-700);
+  letter-spacing: var(--matchy-letter-spacing-normal);
+  line-height: var(--matchy-line-height-loose);
+}
+
+.matchy-emotional-sm {
+  font-family: var(--matchy-font-family-secondary); /* future: Halaney */
+  font-weight: var(--matchy-font-weight-regular);
+  font-size: var(--matchy-font-size-500);
+  letter-spacing: var(--matchy-letter-spacing-normal);
+  line-height: var(--matchy-line-height-relaxed);
+}

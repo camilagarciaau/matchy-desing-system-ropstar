@@ -1,0 +1,17 @@
+:root,
+.dark {
+  --matchy-space-xs: 4px;
+  --matchy-space-sm: 8px;
+  --matchy-space-md: 16px;
+  --matchy-space-lg: 24px;
+  --matchy-space-xl: 32px;
+  --matchy-space-2xl: 48px;
+  --matchy-space-3xl: 64px;
+  --matchy-gutter-mobile: var(--matchy-space-md);
+  --matchy-gutter-desktop: var(--matchy-space-lg);
+  --matchy-content-max-width: 1200px;
+  --matchy-grid-columns-mobile: 4;
+  --matchy-grid-columns-tablet: 8;
+  --matchy-grid-columns-desktop: 12;
+  --matchy-touch-target-min: 44px;
+}

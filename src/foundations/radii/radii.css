@@ -1,0 +1,8 @@
+:root,
+.dark {
+  --matchy-radius-none: 0px;
+  --matchy-radius-sm: 8px;
+  --matchy-radius-md: 12px;
+  --matchy-radius-lg: 16px;
+  --matchy-radius-full: 9999px;
+}

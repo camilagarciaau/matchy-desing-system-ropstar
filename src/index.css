@@ -1,0 +1,99 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "./foundations/tokens/colors.css";
+@import "./foundations/typography/manrope.css";
+@import "./foundations/typography/grand-hotel.css";
+@import "./foundations/spacing/spacing.css";
+@import "./foundations/radii/radii.css";
+@import "./foundations/elevation/elevation.css";
+@import "./foundations/motion/motion.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-matchy-cream-beige: var(--matchy-color-cream-beige);
+    --color-matchy-clay: var(--matchy-color-clay);
+    --color-matchy-panna-yellow: var(--matchy-color-panna-yellow);
+    --color-matchy-disruptive-lilac: var(--matchy-color-disruptive-lilac);
+    --color-matchy-wool-coral: var(--matchy-color-wool-coral);
+    --color-matchy-brick-denim: var(--matchy-color-brick-denim);
+    --color-matchy-leather: var(--matchy-color-leather);
+    --color-matchy-primary: var(--matchy-color-primary);
+    --color-matchy-secondary: var(--matchy-color-secondary);
+    --color-matchy-accent-useful: var(--matchy-color-accent-useful);
+    --color-matchy-accent-highlight: var(--matchy-color-accent-highlight);
+    --color-matchy-shopping: var(--matchy-color-shopping);
+    --color-matchy-background-default: var(--matchy-color-background-default);
+    --color-matchy-background-info: var(--matchy-color-background-info);
+    --color-matchy-background-success: var(--matchy-color-background-success);
+    --color-matchy-background-warning: var(--matchy-color-background-warning);
+    --color-matchy-background-error: var(--matchy-color-background-error);
+    --color-matchy-background-neutral: var(--matchy-color-background-neutral);
+    --color-matchy-typography-default: var(--matchy-color-typography-and-icon-default);
+    --color-matchy-typography-subtle: var(--matchy-color-typography-and-icon-subtle);
+    --color-matchy-typography-contrast: var(--matchy-color-typography-and-icon-contrast);
+}
+
+:root {
+    --radius: 0.625rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    }
+  html {
+    overflow-x: clip;
+    }
+  body {
+    @apply bg-background text-foreground;
+    max-width: 100%;
+    overflow-x: clip;
+    }
+  img,
+  svg,
+  video {
+    max-width: 100%;
+    height: auto;
+    }
+}

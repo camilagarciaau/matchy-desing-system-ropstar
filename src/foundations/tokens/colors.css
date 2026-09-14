@@ -1,0 +1,68 @@
+/* Matchy color tokens — primitives and semantic aliases.
+   Subtle typography (#D9CEC4 / Clay) is a fill token, not body text on cream. */
+
+:root,
+.dark {
+  /* Primitives */
+  --matchy-color-cream-beige: #fff5ec;
+  --matchy-color-clay: #d9cec4;
+  --matchy-color-panna-yellow: #ffe136;
+  --matchy-color-disruptive-lilac: #cbb8ff;
+  --matchy-color-wool-coral: #ff6872;
+  --matchy-color-brick-denim: #f05a1a;
+  --matchy-color-leather: #383838;
+
+  /* Semantic — primary / secondary / accent / shopping */
+  --matchy-color-primary: var(--matchy-color-panna-yellow);
+  --matchy-color-secondary: var(--matchy-color-leather);
+  --matchy-color-accent-useful: var(--matchy-color-clay);
+  --matchy-color-accent-highlight: var(--matchy-color-brick-denim);
+  --matchy-color-shopping: var(--matchy-color-disruptive-lilac);
+
+  /* Semantic — background and status */
+  --matchy-color-background-default: var(--matchy-color-cream-beige);
+  --matchy-color-background-info: var(--matchy-color-disruptive-lilac);
+  --matchy-color-background-success: #b8e434;
+  --matchy-color-background-warning: #ef8f28;
+  --matchy-color-background-error: #d32f2f;
+  --matchy-color-background-neutral: var(--matchy-color-clay);
+
+  /* Semantic — typography and icon */
+  --matchy-color-typography-and-icon-default: var(--matchy-color-leather);
+  --matchy-color-typography-and-icon-subtle: var(--matchy-color-clay);
+  --matchy-color-typography-and-icon-contrast: var(--matchy-color-cream-beige);
+
+  /* shadcn/ui aliases → Matchy (audited pairings) */
+  --background: var(--matchy-color-background-default);
+  --foreground: var(--matchy-color-typography-and-icon-default);
+  --card: var(--matchy-color-background-default);
+  --card-foreground: var(--matchy-color-typography-and-icon-default);
+  --popover: var(--matchy-color-background-default);
+  --popover-foreground: var(--matchy-color-typography-and-icon-default);
+  --primary: var(--matchy-color-primary);
+  --primary-foreground: var(--matchy-color-typography-and-icon-default);
+  --secondary: var(--matchy-color-secondary);
+  --secondary-foreground: var(--matchy-color-typography-and-icon-contrast);
+  --muted: var(--matchy-color-background-neutral);
+  --muted-foreground: var(--matchy-color-typography-and-icon-default);
+  --accent: var(--matchy-color-accent-useful);
+  --accent-foreground: var(--matchy-color-typography-and-icon-default);
+  --destructive: var(--matchy-color-background-error);
+  --destructive-foreground: var(--matchy-color-typography-and-icon-contrast);
+  --border: var(--matchy-color-clay);
+  --input: var(--matchy-color-clay);
+  --ring: var(--matchy-color-leather);
+  --chart-1: var(--matchy-color-panna-yellow);
+  --chart-2: var(--matchy-color-brick-denim);
+  --chart-3: var(--matchy-color-disruptive-lilac);
+  --chart-4: var(--matchy-color-wool-coral);
+  --chart-5: var(--matchy-color-leather);
+  --sidebar: var(--matchy-color-background-default);
+  --sidebar-foreground: var(--matchy-color-typography-and-icon-default);
+  --sidebar-primary: var(--matchy-color-primary);
+  --sidebar-primary-foreground: var(--matchy-color-typography-and-icon-default);
+  --sidebar-accent: var(--matchy-color-accent-useful);
+  --sidebar-accent-foreground: var(--matchy-color-typography-and-icon-default);
+  --sidebar-border: var(--matchy-color-clay);
+  --sidebar-ring: var(--matchy-color-leather);
+}
