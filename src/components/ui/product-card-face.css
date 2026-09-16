@@ -1,0 +1,50 @@
+/* Matchy product photo card — full-bleed swipe media shell. */
+
+.matchy-product-card-face {
+  touch-action: none;
+  border-radius: var(--matchy-radius-lg);
+  background-color: var(--matchy-color-background-default);
+  box-shadow: var(--matchy-elevation-4);
+  transition: var(--matchy-motion-instant);
+}
+
+/*
+ * Blur variant — same leather tint + backdrop blur formerly on loading.
+ * Documented in Foundations → Color (swipe overlay blur) and Components → Product Card.
+ */
+.matchy-product-card-face--blur::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  pointer-events: none;
+  background: color-mix(in oklab, var(--matchy-color-leather) 45%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Keep overlays (loading quote, footers) above the blur scrim. */
+.matchy-product-card-face--blur > :not(img) {
+  z-index: 2;
+}
+
+/*
+ * Footer variant shell — applied automatically when variant="footer".
+ * Tall scrim; copy pinned to the bottom so it sits in the densest part of the fade.
+ */
+.matchy-card-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 48%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.78) 0%,
+    rgba(0, 0, 0, 0.42) 40%,
+    rgba(0, 0, 0, 0.18) 72%,
+    transparent 100%
+  );
+  padding-inline: var(--matchy-space-md);
+  padding-bottom: var(--matchy-space-md);
+}

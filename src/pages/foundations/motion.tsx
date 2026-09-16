@@ -20,6 +20,12 @@ const durations = [
     value: "320ms",
     use: "Modals, sheets, page transitions",
   },
+  {
+    token: "matchy-motion-instant",
+    previewClass: "matchy-motion-preview matchy-motion-preview-instant",
+    value: "0ms (transition: none)",
+    use: "Real-time gesture feedback (swipe drag, press states mid-gesture)",
+  },
 ] as const
 
 const easings = [
@@ -49,17 +55,29 @@ export function MotionPage() {
       section="Foundations"
       title="Motion"
       titleId="motion"
-      description="Standard, predictable timing across interactions."
+      description={
+        <p className="text-lg leading-relaxed">
+          Standard, predictable timing across interactions — see{" "}
+          <a
+            href="#way-of-work"
+            className="font-medium underline underline-offset-4"
+          >
+            Way of Work
+          </a>{" "}
+          for why foundational decisions like this borrow industry standards
+          instead of reinventing them.
+        </p>
+      }
       toc={[
         { id: "duration-heading", label: "Duration" },
         { id: "easing-heading", label: "Easing" },
         { id: "motion-a11y-heading", label: "Accessibility" },
       ]}
     >
-      <section className="mt-10 max-w-3xl" aria-labelledby="duration-heading">
+      <section className="mt-10" aria-labelledby="duration-heading">
         <h2
           id="duration-heading"
-          className="scroll-mt-8 text-xl font-semibold tracking-tight sm:text-2xl"
+          className="scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
         >
           Duration
         </h2>
@@ -79,10 +97,10 @@ export function MotionPage() {
         </div>
       </section>
 
-      <section className="mt-14 max-w-3xl" aria-labelledby="easing-heading">
+      <section className="mt-14" aria-labelledby="easing-heading">
         <h2
           id="easing-heading"
-          className="scroll-mt-8 text-xl font-semibold tracking-tight sm:text-2xl"
+          className="scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
         >
           Easing
         </h2>
@@ -102,10 +120,10 @@ export function MotionPage() {
         </div>
       </section>
 
-      <section className="mt-14 max-w-3xl" aria-labelledby="motion-a11y-heading">
+      <section className="mt-14" aria-labelledby="motion-a11y-heading">
         <h2
           id="motion-a11y-heading"
-          className="scroll-mt-8 text-xl font-semibold tracking-tight sm:text-2xl"
+          className="scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
         >
           Accessibility
         </h2>

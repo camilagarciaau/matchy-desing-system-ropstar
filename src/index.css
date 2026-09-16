@@ -8,6 +8,8 @@
 @import "./foundations/radii/radii.css";
 @import "./foundations/elevation/elevation.css";
 @import "./foundations/motion/motion.css";
+@import "./foundations/icons/icons.css";
+@import "./foundations/buttons/matchy-buttons.css";
 
 @custom-variant dark (&:is(.dark *));
 

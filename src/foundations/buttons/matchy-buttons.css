@@ -1,0 +1,190 @@
+/* Matchy action buttons — pill shape (radius-full) + surface tones. */
+
+.matchy-btn {
+  border-radius: var(--matchy-radius-full);
+  border: none;
+  padding-inline: 1.5rem; /* default text CTA padding (was px-6) */
+  font-family: var(--matchy-font-family-primary); /* future: Degular */
+  /* Override shadcn Button's font-medium utility when matchy-btn is present */
+  font-weight: var(--matchy-font-weight-regular) !important; /* was font-normal */
+  font-size: var(--matchy-font-size-300);
+  letter-spacing: var(--matchy-letter-spacing-normal);
+  line-height: var(--matchy-line-height-tight);
+  transition:
+    background-color var(--matchy-motion-base) var(--matchy-easing-standard),
+    border-color var(--matchy-motion-base) var(--matchy-easing-standard),
+    color var(--matchy-motion-base) var(--matchy-easing-standard),
+    transform var(--matchy-motion-base) var(--matchy-easing-standard),
+    opacity var(--matchy-motion-base) var(--matchy-easing-standard);
+}
+
+.matchy-btn:enabled:hover {
+  cursor: pointer;
+}
+
+.matchy-btn:enabled:active {
+  transform: scale(0.98);
+}
+
+/* Disabled — transversal state on any tone (60% more transparent → opacity 0.4).
+ * Overrides shadcn Button's disabled:opacity-50 when matchy-btn is present. */
+.matchy-btn:disabled,
+.matchy-btn[aria-disabled="true"] {
+  opacity: 0.4 !important;
+  pointer-events: none;
+  transform: none;
+}
+
+/*
+ * Icon-only circular control (shape modifier — single hyphen, not a tone).
+ * Pair with a tone (e.g. matchy-btn--leather). Hover / pressed / disabled
+ * come from the tone rules below.
+ */
+.matchy-btn-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  min-width: var(--matchy-touch-target-min);
+  min-height: var(--matchy-touch-target-min);
+  padding: 0;
+  flex-shrink: 0;
+}
+
+/*
+ * Each fill tone exposes --matchy-btn-tone so matchy-btn--line can reuse it
+ * for border/text (no manual per-instance color).
+ *
+ * Pressed (documented States): :enabled:active and [data-pressed="true"]
+ * (Button `pressed` prop) darken fill/stroke 25%. There is no separate
+ * `.pressable` class — that name was unused and has been removed.
+ */
+
+.matchy-btn--primary {
+  --matchy-btn-tone: var(--matchy-color-primary);
+  background-color: var(--matchy-btn-tone);
+  color: var(--matchy-color-typography-and-icon-default);
+}
+
+.matchy-btn--primary:enabled:hover {
+  /* 25% lighter than base */
+  background-color: color-mix(in oklab, var(--matchy-btn-tone) 75%, white);
+}
+
+.matchy-btn--primary:enabled:active,
+.matchy-btn--primary[data-pressed="true"] {
+  /* 25% darker than base */
+  background-color: color-mix(in oklab, var(--matchy-btn-tone) 75%, black);
+}
+
+.matchy-btn--leather {
+  --matchy-btn-tone: var(--matchy-color-leather);
+  background-color: var(--matchy-btn-tone);
+  color: var(--matchy-color-typography-and-icon-contrast);
+}
+
+.matchy-btn--leather:enabled:hover {
+  background-color: color-mix(in oklab, var(--matchy-btn-tone) 75%, white);
+}
+
+.matchy-btn--leather:enabled:active,
+.matchy-btn--leather[data-pressed="true"] {
+  background-color: color-mix(in oklab, var(--matchy-btn-tone) 75%, black);
+}
+
+.matchy-btn--white {
+  --matchy-btn-tone: var(--matchy-color-cream-beige);
+  background-color: var(--matchy-btn-tone);
+  color: var(--matchy-color-typography-and-icon-default);
+  border: 1.5px solid color-mix(in oklab, var(--matchy-color-leather) 35%, transparent);
+}
+
+.matchy-btn--white:enabled:hover {
+  background-color: color-mix(in oklab, var(--matchy-btn-tone) 75%, white);
+}
+
+.matchy-btn--white:enabled:active,
+.matchy-btn--white[data-pressed="true"] {
+  background-color: color-mix(in oklab, var(--matchy-btn-tone) 75%, black);
+}
+
+/* Semantic exception — purchase only (not contrast fallback). */
+.matchy-btn--purchase {
+  --matchy-btn-tone: var(--matchy-color-shopping);
+  background-color: var(--matchy-btn-tone);
+  color: var(--matchy-color-typography-and-icon-default);
+}
+
+.matchy-btn--purchase:enabled:hover {
+  background-color: color-mix(in oklab, var(--matchy-btn-tone) 75%, white);
+}
+
+.matchy-btn--purchase:enabled:active,
+.matchy-btn--purchase[data-pressed="true"] {
+  background-color: color-mix(in oklab, var(--matchy-btn-tone) 75%, black);
+}
+
+/*
+ * Line — last-resort treatment (not shadcn variant="outline").
+ * Transparent fill; border + text use --matchy-btn-tone from the paired
+ * fill tone (matchy-btn--primary | --leather | --white | --purchase).
+ * Fallback when no tone is paired: leather.
+ * Usage: className="matchy-btn matchy-btn--line matchy-btn--leather"
+ */
+.matchy-btn--line {
+  --matchy-btn-line-color: var(--matchy-btn-tone, var(--matchy-color-leather));
+  background-color: transparent;
+  border: 1.5px solid var(--matchy-btn-line-color);
+  color: var(--matchy-btn-line-color);
+}
+
+.matchy-btn--line:enabled:hover {
+  /* 25% lighter border/text (no solid fill) */
+  border-color: color-mix(in oklab, var(--matchy-btn-line-color) 75%, white);
+  color: color-mix(in oklab, var(--matchy-btn-line-color) 75%, white);
+  background-color: color-mix(
+    in oklab,
+    var(--matchy-btn-line-color) 10%,
+    transparent
+  );
+}
+
+.matchy-btn--line:enabled:active,
+.matchy-btn--line[data-pressed="true"] {
+  /* 25% darker border/text (no solid fill) */
+  border-color: color-mix(in oklab, var(--matchy-btn-line-color) 75%, black);
+  color: color-mix(in oklab, var(--matchy-btn-line-color) 75%, black);
+  background-color: color-mix(
+    in oklab,
+    var(--matchy-btn-line-color) 14%,
+    transparent
+  );
+}
+
+.matchy-link {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color var(--matchy-motion-base) var(--matchy-easing-standard);
+}
+
+.matchy-link--default {
+  color: var(--matchy-color-typography-and-icon-default);
+}
+
+.matchy-link--default:hover {
+  color: color-mix(
+    in oklab,
+    var(--matchy-color-typography-and-icon-default) 78%,
+    var(--matchy-color-brick-denim)
+  );
+}
+
+.matchy-link--contrast {
+  color: var(--matchy-color-typography-and-icon-contrast);
+}
+
+.matchy-link--contrast:hover {
+  color: color-mix(
+    in oklab,
+    var(--matchy-color-typography-and-icon-contrast) 82%,
+    var(--matchy-color-panna-yellow)
+  );
+}

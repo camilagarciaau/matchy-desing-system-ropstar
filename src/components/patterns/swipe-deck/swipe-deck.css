@@ -1,0 +1,123 @@
+.swipe-deck-root {
+  --swipe-deck-motion: var(--matchy-motion-base);
+  --swipe-deck-easing: var(--matchy-easing-standard);
+  overflow: hidden;
+  background-color: var(--matchy-color-background-default);
+  color: var(--matchy-color-typography-and-icon-default);
+  min-height: 42rem;
+  border-radius: var(--matchy-radius-md);
+  padding: var(--matchy-space-lg) var(--matchy-space-md);
+}
+
+.swipe-deck-stage {
+  overflow: hidden;
+  isolation: isolate;
+  touch-action: none;
+  overscroll-behavior: none;
+}
+
+.swipe-deck-card {
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  overscroll-behavior: none;
+}
+
+.swipe-deck-controls {
+  margin-top: var(--matchy-space-md);
+  padding-inline: var(--matchy-space-md);
+}
+
+.swipe-deck-controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Foundations Spacing: at least space-sm between tappable controls */
+  gap: var(--matchy-space-sm);
+}
+
+.swipe-deck-peek {
+  position: absolute;
+  border-radius: var(--matchy-radius-lg);
+  box-shadow: var(--matchy-elevation-1);
+  background-color: var(--matchy-color-secondary);
+}
+
+.swipe-deck-peek-back {
+  inset: 0 8% auto;
+  height: 100%;
+  top: -14px;
+  opacity: 0.9;
+}
+
+.swipe-deck-peek-mid {
+  inset: 0 4% auto;
+  height: 100%;
+  top: -7px;
+  opacity: 1;
+}
+
+.swipe-deck-icon-default {
+  color: var(--matchy-color-icon-default);
+}
+
+.swipe-deck-overlay {
+  border-radius: var(--matchy-radius-lg);
+  /* Documented swipe media overlay — see Foundations → Color (swipe overlay blur).
+   * Used by onboarding / empty — not by LoadingScreen. */
+  background: color-mix(in oklab, var(--matchy-color-leather) 45%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.swipe-deck-control {
+  /* Layout hook for the deck row; tone / icon size / states come from
+   * matchy-btn + matchy-btn-icon + matchy-btn--*. */
+}
+
+/*
+ * Swipe-only last-action flash — not a documented Button pattern.
+ * Overrides the default 25% darker pressed while the action is latched.
+ */
+.swipe-deck-control[data-feedback="dislike"][data-pressed="true"] {
+  background-color: var(--matchy-color-background-error);
+  color: var(--matchy-color-typography-and-icon-contrast);
+}
+
+.swipe-deck-control[data-feedback="like"][data-pressed="true"] {
+  background-color: var(--matchy-color-background-success);
+  color: var(--matchy-color-leather);
+}
+
+.swipe-deck-cart-badge {
+  position: absolute;
+  top: -0.35rem;
+  right: -0.45rem;
+  display: inline-flex;
+  min-width: 1.125rem;
+  height: 1.125rem;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 0.25rem;
+  border-radius: var(--matchy-radius-full);
+  background-color: var(--matchy-color-background-error);
+  color: var(--matchy-color-typography-and-icon-contrast);
+  font-family: var(--font-manrope, inherit);
+  font-size: 0.625rem;
+  font-weight: 600;
+  line-height: 1;
+  pointer-events: none;
+  /* Match control pressed feedback — no delayed fade-in. */
+  transition: var(--matchy-motion-instant);
+}
+
+.swipe-deck-back-link {
+  margin-top: var(--matchy-space-md);
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .swipe-deck-root {
+    --swipe-deck-motion: 0ms;
+  }
+}

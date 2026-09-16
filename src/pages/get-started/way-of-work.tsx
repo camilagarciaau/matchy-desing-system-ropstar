@@ -13,11 +13,11 @@ export function WayOfWorkPage() {
         { id: "accessibility-heading", label: "Accessibility" },
       ]}
     >
-      <div className="mt-10 max-w-3xl space-y-10">
+      <div className="mt-10 space-y-10">
         <section aria-labelledby="adopt-heading">
           <h2
             id="adopt-heading"
-            className="scroll-mt-8 text-xl font-semibold tracking-tight sm:text-2xl"
+            className="scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
           >
             Where we adopt industry standards.
           </h2>
@@ -42,7 +42,7 @@ export function WayOfWorkPage() {
         <section aria-labelledby="invest-heading">
           <h2
             id="invest-heading"
-            className="scroll-mt-8 text-xl font-semibold tracking-tight sm:text-2xl"
+            className="scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
           >
             Where we invest custom effort.
           </h2>
@@ -56,7 +56,7 @@ export function WayOfWorkPage() {
         <section aria-labelledby="accessibility-heading">
           <h2
             id="accessibility-heading"
-            className="scroll-mt-8 text-xl font-semibold tracking-tight sm:text-2xl"
+            className="scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
           >
             Accessibility is a default, not an extra step.
           </h2>

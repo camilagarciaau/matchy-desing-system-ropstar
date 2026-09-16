@@ -63,7 +63,21 @@ export function PrinciplesPage() {
       section="Get Started"
       title="Principles"
       titleId="principles"
-      description="Matchy guides and builds the Ropstar experience — the design system includes foundational standards, component documentation, and guidelines to enable high-quality experiences, fast."
+      description={
+        <>
+          <p className="text-lg leading-relaxed">
+            Matchy guides and builds the Ropstar experience — the design system
+            includes foundational standards, component documentation, and
+            guidelines to enable high-quality experiences, fast.
+          </p>
+          <p className="text-base leading-relaxed">
+            These principles came from our user behaviours and needs: They just
+            want the best price-to-quality option — sustainability was a bonus,
+            not the reason. These four principles reorient the product around
+            that real user.
+          </p>
+        </>
+      }
       toc={principles.map((principle) => ({
         id: principle.id,
         label: `${principle.number} ${principle.title}`,
@@ -77,7 +91,7 @@ export function PrinciplesPage() {
             <article
               key={principle.id}
               id={principle.id}
-              className="min-w-0 max-w-full scroll-mt-10"
+              className="min-w-0 max-w-full scroll-mt-48"
             >
               <div
                 className={cn(

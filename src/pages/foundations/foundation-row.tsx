@@ -16,7 +16,7 @@ export function FoundationRow({
   return (
     <div
       id={id}
-      className="scroll-mt-8 border-b border-border py-6 last:border-b-0"
+      className="scroll-mt-48 border-b border-border py-6 last:border-b-0"
     >
       <div className="rounded-lg bg-muted px-4 py-5">
         <p className="mb-3 text-xs font-semibold tracking-wide uppercase">

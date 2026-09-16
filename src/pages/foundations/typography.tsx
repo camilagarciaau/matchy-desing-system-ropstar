@@ -34,7 +34,22 @@ export function TypographyPage() {
       section="Foundations"
       title="Typography"
       titleId="typography"
-      description="Matchy uses two typeface families with distinct, complementary roles: Degular for the functional interface, and Halaney for specific emotional moments."
+      description={
+        <>
+          <p className="text-lg leading-relaxed">
+            Matchy uses two typeface families with distinct, complementary
+            roles: Degular for the functional interface, and Halaney for
+            specific emotional moments.
+          </p>
+          <p className="text-base leading-relaxed">
+            These typography choices move the same way color does: Degular keeps
+            prices and product info clean and trustworthy, reinforcing a
+            boutique-not-charity feel. Halaney is bold and casual, which brings
+            energy and warmth to playful moments like a match, without
+            pretending to be something more polished than it is.
+          </p>
+        </>
+      }
       toc={[
         { id: "rationale-heading", label: "Rationale" },
         { id: "free-fonts-heading", label: "Free fonts" },
@@ -46,7 +61,7 @@ export function TypographyPage() {
       <section className="mt-10" aria-labelledby="rationale-heading">
         <h2
           id="rationale-heading"
-          className="scroll-mt-8 text-xl font-semibold tracking-tight sm:text-2xl"
+          className="scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
         >
           Rationale
         </h2>
@@ -57,7 +72,7 @@ export function TypographyPage() {
             className="block h-auto w-full bg-white"
           />
         </figure>
-        <div className="mt-6 max-w-3xl space-y-4 text-base leading-relaxed">
+        <div className="mt-6 space-y-4 text-base leading-relaxed">
           <p>
             <strong>Degular</strong> is the functional voice of the system —
             used across the operational interface: pricing, navigation,
@@ -77,11 +92,11 @@ export function TypographyPage() {
       <section className="mt-14" aria-labelledby="free-fonts-heading">
         <h2
           id="free-fonts-heading"
-          className="scroll-mt-8 text-xl font-semibold tracking-tight sm:text-2xl"
+          className="scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
         >
           Free fonts
         </h2>
-        <p className="mt-2 max-w-3xl text-base leading-relaxed">
+        <p className="mt-2 text-base leading-relaxed">
           Degular and Halaney are paid and not yet available. These fallbacks
           can be used in the meantime (commercial use allowed), installed from
           Google Fonts or <code>@fontsource</code>.
@@ -122,21 +137,21 @@ import "@fontsource/grand-hotel"`}</code>
       <section className="mt-14" aria-labelledby="type-styles-heading">
         <h2
           id="type-styles-heading"
-          className="scroll-mt-8 text-xl font-semibold tracking-tight sm:text-2xl"
+          className="scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
         >
           Type styles
         </h2>
-        <p className="mt-2 max-w-3xl text-base leading-relaxed">
+        <p className="mt-2 text-base leading-relaxed">
           Each style is shown as live text, then its token, purpose, and size.
         </p>
         <h3 className="mt-10 text-lg font-semibold tracking-tight">
           Degular — Manrope fallback
         </h3>
-        <p className="mt-2 max-w-3xl text-base leading-relaxed">
+        <p className="mt-2 text-base leading-relaxed">
           Functional voice: pricing, navigation, buttons, labels, and reading
           text.
         </p>
-        <div className="mt-4 max-w-3xl">
+        <div className="mt-4">
           {degularStyles.map((item) => (
             <TypeRow key={item.token} {...item} />
           ))}
@@ -144,10 +159,10 @@ import "@fontsource/grand-hotel"`}</code>
         <h3 className="mt-10 text-lg font-semibold tracking-tight">
           Halaney — Grand Hotel fallback
         </h3>
-        <p className="mt-2 max-w-3xl text-base leading-relaxed">
+        <p className="mt-2 text-base leading-relaxed">
           Reserved for short emotional phrases (1–5 words).
         </p>
-        <div className="mt-4 max-w-3xl">
+        <div className="mt-4">
           {halaneyStyles.map((item) => (
             <TypeRow key={item.token} {...item} />
           ))}
@@ -157,7 +172,7 @@ import "@fontsource/grand-hotel"`}</code>
       <section className="mt-14" aria-labelledby="usage-heading">
         <h2
           id="usage-heading"
-          className="scroll-mt-8 text-xl font-semibold tracking-tight sm:text-2xl"
+          className="scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
         >
           Usage guidelines
         </h2>
@@ -197,11 +212,11 @@ import "@fontsource/grand-hotel"`}</code>
       <section className="mt-14" aria-labelledby="accessibility-heading">
         <h2
           id="accessibility-heading"
-          className="scroll-mt-8 text-xl font-semibold tracking-tight sm:text-2xl"
+          className="scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
         >
           Accessibility
         </h2>
-        <p className="mt-2 max-w-3xl text-base leading-relaxed">
+        <p className="mt-2 text-base leading-relaxed">
           The accessibility standard (WCAG) recommends a minimum of 16px for
           reading text, only allowing smaller sizes for short labels or
           secondary text — never for paragraphs.
@@ -209,7 +224,7 @@ import "@fontsource/grand-hotel"`}</code>
         <h3 className="mt-8 text-lg font-semibold tracking-tight">
           Type scale
         </h3>
-        <p className="mt-2 max-w-3xl text-base leading-relaxed">
+        <p className="mt-2 text-base leading-relaxed">
           Headlines use 2 levels per family for clear, simple hierarchy. All
           reading text sits at or above the 16px accessibility minimum —
           smaller sizes are reserved for short, secondary labels.
@@ -257,7 +272,7 @@ import "@fontsource/grand-hotel"`}</code>
         <h3 className="mt-8 text-lg font-semibold tracking-tight">
           Exceptions that remain below 16px, and why
         </h3>
-        <ul className="mt-3 max-w-3xl list-disc space-y-3 pl-5 text-base leading-relaxed">
+        <ul className="mt-3 list-disc space-y-3 pl-5 text-base leading-relaxed">
           <li>
             <strong>Label 3 (14px)</strong> — used only for very short
             secondary metadata (a tag, a product condition, a date), never for
@@ -276,6 +291,12 @@ import "@fontsource/grand-hotel"`}</code>
             pass the 16px minimum, but a script typeface reduces legibility
             even at large sizes. Regardless of size, it should always be
             limited to very short phrases.
+          </li>
+          <li>
+            <strong>Italic paragraph (swipe loading quotes)</strong> — fashion
+            quotes shown over the swipe loading spinner may use italic on{" "}
+            <code>matchy-paragraph</code>. Italic is not a separate type token;
+            keep it to short quotations only, never to UI labels or CTAs.
           </li>
         </ul>
       </section>

@@ -100,7 +100,7 @@ export const typeScale = [
     token: "matchy-button-primary",
     className: "matchy-button-primary",
     font: "Degular",
-    weight: "Bold",
+    weight: "Regular",
     size: "16px",
     letterSpacing: "0%",
     lineHeight: "16",

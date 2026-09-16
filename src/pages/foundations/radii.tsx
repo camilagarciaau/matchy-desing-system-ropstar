@@ -18,13 +18,13 @@ const radii = [
     token: "matchy-radius-md",
     cssVar: "--matchy-radius-md",
     value: "12px",
-    use: "Cards, inputs",
+    use: "Cards, inputs, swipe deck frame",
   },
   {
     token: "matchy-radius-lg",
     cssVar: "--matchy-radius-lg",
     value: "16px",
-    use: "Modals, sheets",
+    use: "Modals, sheets, swipe product photo cards",
   },
   {
     token: "matchy-radius-full",
@@ -40,16 +40,28 @@ export function RadiiPage() {
       section="Foundations"
       title="Radii"
       titleId="radii"
-      description="Consistent corner rounding across components."
+      description={
+        <p className="text-lg leading-relaxed">
+          Consistent corner rounding across components — see{" "}
+          <a
+            href="#way-of-work"
+            className="font-medium underline underline-offset-4"
+          >
+            Way of Work
+          </a>{" "}
+          for why foundational decisions like this borrow industry standards
+          instead of reinventing them.
+        </p>
+      }
       toc={[
         { id: "radii-scale-heading", label: "Scale" },
         { id: "radii-a11y-heading", label: "Accessibility" },
       ]}
     >
-      <section className="mt-10 max-w-3xl" aria-labelledby="radii-scale-heading">
+      <section className="mt-10" aria-labelledby="radii-scale-heading">
         <h2
           id="radii-scale-heading"
-          className="scroll-mt-8 text-xl font-semibold tracking-tight sm:text-2xl"
+          className="scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
         >
           Scale
         </h2>
@@ -71,10 +83,10 @@ export function RadiiPage() {
         </div>
       </section>
 
-      <section className="mt-14 max-w-3xl" aria-labelledby="radii-a11y-heading">
+      <section className="mt-14" aria-labelledby="radii-a11y-heading">
         <h2
           id="radii-a11y-heading"
-          className="scroll-mt-8 text-xl font-semibold tracking-tight sm:text-2xl"
+          className="scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
         >
           Accessibility
         </h2>

@@ -109,10 +109,10 @@ export function ContentPage() {
         { id: "content-a11y-heading", label: "Accessibility" },
       ]}
     >
-      <section className="mt-10 max-w-3xl" aria-labelledby="voice-tone-heading">
+      <section className="mt-10" aria-labelledby="voice-tone-heading">
         <h2
           id="voice-tone-heading"
-          className="scroll-mt-8 text-xl font-semibold tracking-tight sm:text-2xl"
+          className="scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
         >
           Voice & tone
         </h2>
@@ -157,12 +157,12 @@ export function ContentPage() {
       </section>
 
       <section
-        className="mt-14 max-w-3xl"
+        className="mt-14"
         aria-labelledby="writing-rules-heading"
       >
         <h2
           id="writing-rules-heading"
-          className="scroll-mt-8 text-xl font-semibold tracking-tight sm:text-2xl"
+          className="scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
         >
           Writing rules
         </h2>
@@ -203,12 +203,12 @@ export function ContentPage() {
       </section>
 
       <section
-        className="mt-14 max-w-3xl"
+        className="mt-14"
         aria-labelledby="formatting-heading"
       >
         <h2
           id="formatting-heading"
-          className="scroll-mt-8 text-xl font-semibold tracking-tight sm:text-2xl"
+          className="scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
         >
           Formatting
         </h2>
@@ -234,12 +234,12 @@ export function ContentPage() {
       </section>
 
       <section
-        className="mt-14 max-w-3xl"
+        className="mt-14"
         aria-labelledby="terminology-heading"
       >
         <h2
           id="terminology-heading"
-          className="scroll-mt-8 text-xl font-semibold tracking-tight sm:text-2xl"
+          className="scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
         >
           Terminology
         </h2>
@@ -271,12 +271,12 @@ export function ContentPage() {
       </section>
 
       <section
-        className="mt-14 max-w-3xl"
+        className="mt-14"
         aria-labelledby="common-patterns-heading"
       >
         <h2
           id="common-patterns-heading"
-          className="scroll-mt-8 text-xl font-semibold tracking-tight sm:text-2xl"
+          className="scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
         >
           Common patterns
         </h2>
@@ -301,12 +301,12 @@ export function ContentPage() {
       </section>
 
       <section
-        className="mt-14 max-w-3xl"
+        className="mt-14"
         aria-labelledby="content-a11y-heading"
       >
         <h2
           id="content-a11y-heading"
-          className="scroll-mt-8 text-xl font-semibold tracking-tight sm:text-2xl"
+          className="scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
         >
           Accessibility in content
         </h2>

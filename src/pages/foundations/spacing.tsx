@@ -52,7 +52,20 @@ export function SpacingPage() {
       section="Foundations"
       title="Spacing"
       titleId="spacing"
-      description="Based on a 4px grid, matching Gestalt's boint unit."
+      description={
+        <p className="text-lg leading-relaxed">
+          Based on a 4px grid, matching the 4px unit (&apos;boint&apos;) used by
+          Gestalt, Pinterest&apos;s own open-source design system — see{" "}
+          <a
+            href="#way-of-work"
+            className="font-medium underline underline-offset-4"
+          >
+            Way of Work
+          </a>{" "}
+          for why foundational decisions like this borrow industry standards
+          instead of reinventing them.
+        </p>
+      }
       toc={[
         { id: "scale-heading", label: "Scale" },
         { id: "layout-heading", label: "Layout" },
@@ -61,10 +74,10 @@ export function SpacingPage() {
         { id: "spacing-a11y-heading", label: "Accessibility" },
       ]}
     >
-      <section className="mt-10 max-w-3xl" aria-labelledby="scale-heading">
+      <section className="mt-10" aria-labelledby="scale-heading">
         <h2
           id="scale-heading"
-          className="scroll-mt-8 text-xl font-semibold tracking-tight sm:text-2xl"
+          className="scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
         >
           Scale
         </h2>
@@ -99,17 +112,17 @@ export function SpacingPage() {
         </div>
       </section>
 
-      <section className="mt-14 max-w-3xl" aria-labelledby="layout-heading">
+      <section className="mt-14" aria-labelledby="layout-heading">
         <h2
           id="layout-heading"
-          className="scroll-mt-8 text-xl font-semibold tracking-tight sm:text-2xl"
+          className="scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
         >
           Layout
         </h2>
 
         <h3
           id="gutter-heading"
-          className="scroll-mt-8 text-base font-semibold tracking-tight"
+          className="scroll-mt-48 text-base font-semibold tracking-tight"
         >
           Gutter
         </h3>
@@ -155,7 +168,7 @@ export function SpacingPage() {
 
         <h3
           id="grid-heading"
-          className="mt-10 scroll-mt-8 text-base font-semibold tracking-tight"
+          className="mt-10 scroll-mt-48 text-base font-semibold tracking-tight"
         >
           Grid
         </h3>
@@ -206,10 +219,10 @@ export function SpacingPage() {
         </FoundationRow>
       </section>
 
-      <section className="mt-14 max-w-3xl" aria-labelledby="spacing-a11y-heading">
+      <section className="mt-14" aria-labelledby="spacing-a11y-heading">
         <h2
           id="spacing-a11y-heading"
-          className="scroll-mt-8 text-xl font-semibold tracking-tight sm:text-2xl"
+          className="scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
         >
           Accessibility
         </h2>

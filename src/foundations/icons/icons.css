@@ -1,0 +1,9 @@
+:root,
+.dark {
+  --matchy-icon-size-sm: 16px;
+  --matchy-icon-size-md: 20px;
+  --matchy-icon-size-lg: 24px;
+
+  --matchy-color-icon-default: var(--matchy-color-typography-and-icon-default);
+  --matchy-color-icon-contrast: var(--matchy-color-typography-and-icon-contrast);
+}

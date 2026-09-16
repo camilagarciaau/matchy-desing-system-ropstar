@@ -52,6 +52,7 @@ Pinterest's own Gestalt leans flat — depth comes mostly from warm surface colo
 | `matchy-elevation-1` | `0 1px 2px rgba(0,0,0,0.08)` | Cards at rest |
 | `matchy-elevation-2` | `0 4px 8px rgba(0,0,0,0.12)` | Swipe card (active/top of stack) |
 | `matchy-elevation-3` | `0 8px 24px rgba(0,0,0,0.16)` | Modals, sheets |
+| `matchy-elevation-4` | `0 12px 28px rgba(0,0,0,0.14), 0 2px 6px rgba(0,0,0,0.10)` | Full-bleed images with no visible background (swipe product photos) |
 
 **Accessibility:**
 - Never use elevation alone to communicate state (e.g. an error card) — pair it with color and an icon/label, since shadow differences aren't perceivable to low-vision users.
@@ -66,6 +67,7 @@ Pinterest's own Gestalt leans flat — depth comes mostly from warm surface colo
 | `matchy-motion-fast` | 120ms | Micro-interactions (button press, toggle) |
 | `matchy-motion-base` | 200ms | Standard transitions (hover, tab switch) |
 | `matchy-motion-slow` | 320ms | Modals, sheets, page transitions |
+| `matchy-motion-instant` | 0ms (`transition: none`) | Real-time gesture feedback (swipe drag, press states mid-gesture) |
 
 **Easing:**
 - `matchy-easing-standard`: `cubic-bezier(0.4, 0, 0.2, 1)` — default for most transitions

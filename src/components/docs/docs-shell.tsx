@@ -14,6 +14,10 @@ export type DocsPageId =
   | "content"
   | "logo"
   | "icons"
+  | "buttons"
+  | "product-card"
+  | "loading"
+  | "playground"
 
 const navSections: {
   title: string
@@ -42,11 +46,17 @@ const navSections: {
   },
   {
     title: "Components",
-    items: [],
+    items: [
+      { label: "Buttons", href: "#buttons", page: "buttons" },
+      { label: "Product Card", href: "#product-card", page: "product-card" },
+      { label: "Loading", href: "#loading", page: "loading" },
+    ],
   },
   {
     title: "Patterns",
-    items: [],
+    items: [
+      { label: "Playground", href: "#playground", page: "playground" },
+    ],
   },
   {
     title: "Team Support",
@@ -62,7 +72,7 @@ export function DocsShell({
   children: ReactNode
 }) {
   return (
-    <div className="min-h-svh max-w-full overflow-x-clip bg-background text-foreground">
+    <div className="min-h-svh max-w-full bg-background text-foreground">
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:m-3 focus:rounded-md focus:bg-primary focus:px-3 focus:py-2 focus:text-sm focus:text-primary-foreground"

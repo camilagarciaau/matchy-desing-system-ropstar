@@ -3,6 +3,8 @@
   --matchy-motion-fast: 120ms;
   --matchy-motion-base: 200ms;
   --matchy-motion-slow: 320ms;
+  /* Instant = no CSS transition (gesture / mid-drag feedback). */
+  --matchy-motion-instant: none;
   --matchy-easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
   --matchy-easing-enter: ease-out;
   --matchy-easing-exit: ease-in;
@@ -39,6 +41,10 @@
     var(--matchy-easing-standard) infinite alternate;
 }
 
+.matchy-motion-preview-instant {
+  /* Static — instant motion has no animation. */
+}
+
 .matchy-motion-preview-enter {
   animation: matchy-motion-nudge var(--matchy-motion-base)
     var(--matchy-easing-enter) infinite alternate;
@@ -47,6 +53,10 @@
 .matchy-motion-preview-exit {
   animation: matchy-motion-nudge var(--matchy-motion-base)
     var(--matchy-easing-exit) infinite alternate;
+}
+
+.matchy-motion-instant {
+  transition: var(--matchy-motion-instant);
 }
 
 @media (prefers-reduced-motion: reduce) {

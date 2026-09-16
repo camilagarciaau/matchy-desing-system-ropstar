@@ -62,7 +62,24 @@ export function ColorPage() {
       section="Foundations"
       title="Color"
       titleId="color"
-      description="Our color palette represents Matchy's full range of options — a thoughtful combination of warm, vibrant, and neutral tones. This page covers primary/secondary usage, accent and status colors, and accessibility guidance for applying color correctly."
+      description={
+        <>
+          <p className="text-lg leading-relaxed">
+            Our color palette represents Matchy&apos;s full range of options — a
+            thoughtful combination of warm, vibrant, and neutral tones. This
+            page covers primary/secondary usage, accent and status colors, and
+            accessibility guidance for applying color correctly.
+          </p>
+          <p className="text-base leading-relaxed">
+            This palette moves away from the earthy, sustainability-coded greens
+            common across secondhand marketplaces — a deliberate choice, since
+            our users shop for price-to-quality first, not sustainability.
+            Instead, warm neutrals and energetic accents (named after real
+            fabrics — wool, denim, leather) draw from fashion itself, giving
+            Matchy a boutique feel rather than a thrift-store one.
+          </p>
+        </>
+      }
       toc={[
         { id: "palette-heading", label: "Color palette" },
         { id: "usage-heading", label: "Usage" },
@@ -71,16 +88,17 @@ export function ColorPage() {
           label: group.title,
         })),
         { id: "accessibility-heading", label: "Accessibility" },
+        { id: "swipe-overlay-heading", label: "Swipe overlay blur" },
       ]}
     >
       <section className="mt-10" aria-labelledby="palette-heading">
         <h2
           id="palette-heading"
-          className="scroll-mt-8 text-xl font-semibold tracking-tight sm:text-2xl"
+          className="scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
         >
           Color palette
         </h2>
-        <p className="mt-2 max-w-3xl text-base leading-relaxed">
+        <p className="mt-2 text-base leading-relaxed">
           Primitive tokens are the raw values. Semantic tokens alias these for
           specific roles.
         </p>
@@ -99,17 +117,17 @@ export function ColorPage() {
       <section className="mt-14" aria-labelledby="usage-heading">
         <h2
           id="usage-heading"
-          className="scroll-mt-8 text-xl font-semibold tracking-tight sm:text-2xl"
+          className="scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
         >
           Usage
         </h2>
         <div className="mt-8 space-y-12">
           {semanticGroups.map((group) => (
-            <div key={group.id} id={group.id} className="scroll-mt-10">
+            <div key={group.id} id={group.id} className="scroll-mt-48">
               <h3 className="text-lg font-semibold tracking-tight">
                 {group.title}
               </h3>
-              <p className="mt-2 max-w-3xl text-base leading-relaxed">
+              <p className="mt-2 text-base leading-relaxed">
                 {group.description}
               </p>
               <div
@@ -135,11 +153,11 @@ export function ColorPage() {
       <section className="mt-14" aria-labelledby="accessibility-heading">
         <h2
           id="accessibility-heading"
-          className="scroll-mt-8 text-xl font-semibold tracking-tight sm:text-2xl"
+          className="scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
         >
           Accessibility
         </h2>
-        <p className="mt-2 max-w-3xl text-base leading-relaxed">
+        <p className="mt-2 text-base leading-relaxed">
           Aligns with{" "}
           <a
             href="https://www.w3.org/TR/WCAG22/"
@@ -154,7 +172,7 @@ export function ColorPage() {
         <h3 className="mt-8 text-lg font-semibold tracking-tight">
           Audited pairs
         </h3>
-        <p className="mt-2 max-w-3xl text-base leading-relaxed">
+        <p className="mt-2 text-base leading-relaxed">
           Pairs with no real use in the system were removed. The table keeps
           only combinations with a decision or note behind them. WCAG status is
           also labeled in text, not by color alone.
@@ -205,6 +223,22 @@ export function ColorPage() {
             </tbody>
           </table>
         </div>
+        <h3
+          id="swipe-overlay-heading"
+          className="mt-10 scroll-mt-48 text-lg font-semibold tracking-tight"
+        >
+          Swipe overlay blur
+        </h3>
+        <p className="mt-3 text-base leading-relaxed">
+          Onboarding and empty states in the swipe deck use a leather tint with{" "}
+          <code>backdrop-filter: blur(16px)</code> over the product photo so
+          text and CTAs stay readable. Loading nests{" "}
+          <code>LoadingScreen</code> on <code>ProductCardFace</code> with{" "}
+          <code>variant=&quot;blur&quot;</code> (same leather tint +{" "}
+          <code>backdrop-filter: blur(16px)</code>). Onboarding/empty keep the
+          pattern-level <code>swipe-deck-overlay</code>. Prefer the documented
+          typography contrast color on top of blurred media.
+        </p>
       </section>
     </DocsPage>
   )

@@ -82,7 +82,23 @@ export function LogoPage() {
       section="Foundations"
       title="Logo"
       titleId="logo"
-      description="Distinct from Manrope/Degular typography, which are reserved for UI text."
+      description={
+        <>
+          <p className="text-lg leading-relaxed">
+            Distinct from Manrope/Degular typography, which are reserved for UI
+            text.
+          </p>
+          <p className="text-base leading-relaxed">
+            The logo moves the same way color and typography do:
+            &apos;Ropstar&apos; blends &apos;ropa&apos; (Spanish for clothing)
+            with &apos;star&apos;, putting the wearer, not the brand, in the
+            spotlight — matching what actually keeps users buying, feeling good
+            in their clothes, not a sustainability pitch. The bracketed monogram
+            [Я] reads like a garment tag or seal, reinforcing trust in item
+            quality, the thing secondhand buyers actually care about.
+          </p>
+        </>
+      }
       toc={[
         { id: "lockup-heading", label: "Lockup" },
         { id: "monogram-heading", label: "Monogram" },
@@ -92,10 +108,10 @@ export function LogoPage() {
         { id: "usage-heading", label: "Usage" },
       ]}
     >
-      <section className="mt-10 max-w-3xl" aria-labelledby="lockup-heading">
+      <section className="mt-10" aria-labelledby="lockup-heading">
         <h2
           id="lockup-heading"
-          className="scroll-mt-8 text-xl font-semibold tracking-tight sm:text-2xl"
+          className="scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
         >
           Lockup
         </h2>
@@ -116,10 +132,10 @@ export function LogoPage() {
         </FoundationRow>
       </section>
 
-      <section className="mt-14 max-w-3xl" aria-labelledby="monogram-heading">
+      <section className="mt-14" aria-labelledby="monogram-heading">
         <h2
           id="monogram-heading"
-          className="scroll-mt-8 text-xl font-semibold tracking-tight sm:text-2xl"
+          className="scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
         >
           Monogram
         </h2>
@@ -143,12 +159,12 @@ export function LogoPage() {
       </section>
 
       <section
-        className="mt-14 max-w-3xl"
+        className="mt-14"
         aria-labelledby="color-variants-heading"
       >
         <h2
           id="color-variants-heading"
-          className="scroll-mt-8 text-xl font-semibold tracking-tight sm:text-2xl"
+          className="scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
         >
           Color variants
         </h2>
@@ -201,12 +217,12 @@ export function LogoPage() {
       </section>
 
       <section
-        className="mt-14 max-w-3xl"
+        className="mt-14"
         aria-labelledby="clear-space-heading"
       >
         <h2
           id="clear-space-heading"
-          className="scroll-mt-8 text-xl font-semibold tracking-tight sm:text-2xl"
+          className="scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
         >
           Clear space
         </h2>
@@ -249,12 +265,12 @@ export function LogoPage() {
       </section>
 
       <section
-        className="mt-14 max-w-3xl"
+        className="mt-14"
         aria-labelledby="minimum-size-heading"
       >
         <h2
           id="minimum-size-heading"
-          className="scroll-mt-8 text-xl font-semibold tracking-tight sm:text-2xl"
+          className="scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
         >
           Minimum size
         </h2>
@@ -295,10 +311,10 @@ export function LogoPage() {
         </div>
       </section>
 
-      <section className="mt-14 max-w-3xl" aria-labelledby="usage-heading">
+      <section className="mt-14" aria-labelledby="usage-heading">
         <h2
           id="usage-heading"
-          className="scroll-mt-8 text-xl font-semibold tracking-tight sm:text-2xl"
+          className="scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
         >
           Usage
         </h2>

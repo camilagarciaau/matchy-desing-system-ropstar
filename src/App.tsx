@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react"
 
 import { DocsShell, type DocsPageId } from "@/components/docs/docs-shell"
+import { ButtonsPage } from "@/pages/components/buttons"
+import { LoadingPage } from "@/pages/components/loading"
+import { ProductCardPage } from "@/pages/components/product-card"
 import { ColorPage } from "@/pages/foundations/color"
 import { ContentPage } from "@/pages/foundations/content"
 import { ElevationPage } from "@/pages/foundations/elevation"
@@ -12,6 +15,7 @@ import { SpacingPage } from "@/pages/foundations/spacing"
 import { TypographyPage } from "@/pages/foundations/typography"
 import { PrinciplesPage } from "@/pages/get-started/principles"
 import { WayOfWorkPage } from "@/pages/get-started/way-of-work"
+import { PlaygroundPage } from "@/pages/patterns/playground"
 
 const pages = {
   principles: PrinciplesPage,
@@ -25,6 +29,10 @@ const pages = {
   content: ContentPage,
   logo: LogoPage,
   icons: IconsPage,
+  buttons: ButtonsPage,
+  "product-card": ProductCardPage,
+  loading: LoadingPage,
+  playground: PlaygroundPage,
 } as const
 
 function pageFromHash(): DocsPageId {
@@ -46,6 +54,10 @@ export function App() {
     window.addEventListener("hashchange", onHashChange)
     return () => window.removeEventListener("hashchange", onHashChange)
   }, [])
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" })
+  }, [page])
 
   const Page = pages[page]
 

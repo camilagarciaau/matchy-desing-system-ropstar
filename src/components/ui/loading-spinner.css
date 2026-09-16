@@ -1,0 +1,33 @@
+/* LoadingScreen — spinner + quote only (no photo / blur / scrim). */
+.matchy-loading {
+  border-radius: var(--matchy-radius-lg);
+  pointer-events: none;
+}
+
+.matchy-spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 2.5px solid
+    color-mix(in oklab, var(--matchy-color-background-info) 55%, transparent);
+  border-top-color: var(--matchy-color-typography-and-icon-contrast);
+  border-radius: var(--matchy-radius-full);
+  animation: matchy-spin 0.75s linear infinite;
+}
+
+.matchy-quote {
+  font-style: italic; /* Documented exception — Foundations → Typography */
+}
+
+@keyframes matchy-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .matchy-spinner {
+    animation: none;
+    border-top-color: var(--matchy-color-typography-and-icon-contrast);
+    opacity: 0.85;
+  }
+}

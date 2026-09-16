@@ -42,7 +42,7 @@ Headlines use 2 levels per family for clear, simple hierarchy. All reading text 
 | Label 2 | `matchy-label-2` | Degular | Bold | 16px | 0% | 16 |
 | Label 3 | `matchy-label-3` | Degular | Bold | 14px | 0% | 16 |
 | Paragraph 1 | `matchy-paragraph` | Degular | Regular | **16px** | 0% | **24** |
-| Button | `matchy-button-primary` | Degular | Bold | 16px | 0% | 16 |
+| Button | `matchy-button-primary` | Degular | Regular | 16px | 0% | 16 |
 | Button 2 | `matchy-button-secondary` | Degular | Bold | 12px | 0% | 16 |
 | Emotional Large | `matchy-emotional-lg` | Halaney | Regular | 32px | 0% | 40 |
 | Emotional Small | `matchy-emotional-sm` | Halaney | Regular | 20px | 0% | 32 |
@@ -112,7 +112,7 @@ import '@fontsource/grand-hotel';
 --matchy-label-2: var(--matchy-font-family-primary) bold var(--matchy-font-size-300);
 --matchy-label-3: var(--matchy-font-family-primary) bold var(--matchy-font-size-200); /* exception */
 --matchy-paragraph: var(--matchy-font-family-primary) regular var(--matchy-font-size-300);
---matchy-button-primary: var(--matchy-font-family-primary) bold var(--matchy-font-size-300);
+--matchy-button-primary: var(--matchy-font-family-primary) regular var(--matchy-font-size-300);
 --matchy-button-secondary: var(--matchy-font-family-primary) bold var(--matchy-font-size-100); /* exception */
 ```
 
