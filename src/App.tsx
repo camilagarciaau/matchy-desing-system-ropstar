@@ -20,6 +20,7 @@ import { TypographyPage } from "@/foundations/typography/docs"
 import { PrinciplesPage } from "@/pages/get-started/principles"
 import { WayOfWorkPage } from "@/pages/get-started/way-of-work"
 import { PlaygroundPage } from "@/patterns/playground/docs"
+import { RepoGovernancePage } from "@/pages/team-support/repo-governance"
 
 const pages = {
   principles: PrinciplesPage,
@@ -41,6 +42,7 @@ const pages = {
   avatar: AvatarPage,
   "save-toast": SaveToastPage,
   playground: PlaygroundPage,
+  "repo-governance": RepoGovernancePage,
 } as const
 
 function pageFromHash(): DocsPageId {

@@ -1,28 +1,42 @@
-# Matchy design system (Ropstar)
+<p align="center">
+  <img src="src/assets/docs/matchy-logo-tokens/black%20logo.svg" alt="Ropstar" width="220" />
+</p>
 
-Local design-system docs and playground for Matchy / Ropstar.
+# Matchy
 
-## Source layout
+Matchy is the design system behind **Ropstar Match** — a secondhand fashion discovery experience. This repo is a living docs site and playground: foundations, reusable components, and composed patterns, built as a portfolio case study rather than a published npm package.
 
-Pieces live by **domain**, not by file type:
-
-| Area | Path | What belongs here |
-| --- | --- | --- |
-| Foundations | `src/foundations/<name>/` | Tokens, CSS, and foundation docs (`docs.tsx`) |
-| Components | `src/components/<name>/` | Matchy-branded components + their CSS + docs |
-| Patterns | `src/patterns/<name>/` | Composed flows (e.g. swipe deck, home) |
-| shadcn primitives | `src/components/ui/` | Unthemed / lightly wired shadcn primitives only |
-
-### Matchy vs `components/ui/`
-
-- **Matchy components** live under `src/components/<name>/` (for example `src/components/button/button.tsx`). Import those paths in app and docs code.
-- **`src/components/ui/`** is reserved for stock shadcn primitives (Input, Dialog, Card, Badge, etc.) that are not Matchy-documented surfaces.
-- Do **not** run `npx shadcn add button` (or similar) expecting to update the Matchy Button — the CLI writes to `components/ui/` and would create a conflicting `components/ui/button.tsx` instead of editing `components/button/button.tsx`. Matchy button styles are in `src/foundations/buttons/matchy-buttons.css`.
-
-## Scripts
+## Run it
 
 ```bash
 npm install
-npm run dev
-npm run build
+npm run dev        # docs site → http://localhost:5173
+npm run build      # typecheck + production bundle
+npm run lint:tokens  # Matchy class-name conventions
 ```
+
+## What’s inside
+
+The system is organized **by domain**, not by file type. Each piece keeps its tokens or implementation, styles, and docs page together.
+
+| Area | Path | Role |
+| --- | --- | --- |
+| **Foundations** | `src/foundations/<name>/` | Color, typography, spacing, radii, elevation, motion, content, logo, icons — plus shared button surface styles |
+| **Components** | `src/components/<name>/` | Matchy UI with docs: Button, Product Card, Loading, Story Card, Avatar, Filters, Save Toast |
+| **Patterns** | `src/patterns/<name>/` | Composed flows — Home (marketplace grid, stories, banners) and the Swipe Deck discovery experience |
+| **Docs chrome** | `src/components/docs/` | Shell for the documentation site itself |
+
+Open **Patterns → Playground** in the running app to try Home and Match side by side.
+
+## Matchy components vs `components/ui/`
+
+Matchy-branded surfaces live under `src/components/<name>/` (for example `src/components/button/button.tsx`). Import those paths in app and docs code. Styles for Matchy button tones live in `src/foundations/buttons/matchy-buttons.css`.
+
+`src/components/ui/` is only for stock **shadcn** primitives (Input, Dialog, Card, Badge, and similar) that are not Matchy-documented product surfaces.
+
+> [!WARNING]
+> Do **not** run `npx shadcn add button` (or similar) expecting to update the Matchy Button. The CLI writes under `components/ui/` and will create a conflicting `components/ui/button.tsx` instead of editing `components/button/button.tsx`.
+
+## Conventions for coding agents
+
+Project rules for naming, docs structure, reuse-before-inventing, and honesty in foundations live in [`AGENTS.md`](./AGENTS.md) (also pulled in via `CLAUDE.md`). Prefer that file over inventing parallel process docs.

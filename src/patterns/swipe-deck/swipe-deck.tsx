@@ -65,8 +65,8 @@ function PeekStack({ className }: { className?: string }) {
       className={cn("pointer-events-none absolute inset-0", className)}
       aria-hidden="true"
     >
-      <div className="swipe-deck-peek swipe-deck-peek-back" />
-      <div className="swipe-deck-peek swipe-deck-peek-mid" />
+      <div className="matchy-swipe-deck-peek matchy-swipe-deck-peek-back" />
+      <div className="matchy-swipe-deck-peek matchy-swipe-deck-peek-mid" />
     </div>
   )
 }
@@ -99,7 +99,7 @@ function DeckShell({
       {below}
       <a
         href="https://ropstar.co"
-        className="swipe-deck-back-link matchy-link matchy-link--default matchy-label-3"
+        className="matchy-swipe-deck-back-link matchy-link matchy-link--default matchy-label-3"
       >
         Back to Ropstar.co
       </a>
@@ -120,7 +120,7 @@ function OnboardingScreen({
         imageUrl={firstItem.imageUrl}
         alt={itemAltText(firstItem)}
       >
-        <div className="swipe-deck-overlay absolute inset-0 z-10 flex flex-col overflow-hidden">
+        <div className="matchy-swipe-deck-overlay absolute inset-0 z-10 flex flex-col overflow-hidden">
           <div className="relative grid min-h-0 flex-1 grid-cols-2">
             <div
               className="flex flex-col items-center justify-center text-center"
@@ -131,7 +131,7 @@ function OnboardingScreen({
               }}
             >
               <span
-                className="swipe-deck-icon-default inline-flex size-14 items-center justify-center rounded-full bg-matchy-background-default"
+                className="matchy-swipe-deck-icon-default inline-flex size-14 items-center justify-center rounded-full bg-matchy-background-default"
                 aria-hidden="true"
               >
                 <MatchyIcon
@@ -162,7 +162,7 @@ function OnboardingScreen({
               }}
             >
               <span
-                className="swipe-deck-icon-default inline-flex size-14 items-center justify-center rounded-full bg-matchy-background-default"
+                className="matchy-swipe-deck-icon-default inline-flex size-14 items-center justify-center rounded-full bg-matchy-background-default"
                 aria-hidden="true"
               >
                 <MatchyIcon
@@ -209,7 +209,7 @@ function EmptyScreen({
       <ProductCardFace
         imageUrl={lastItem.imageUrl}
         alt={itemAltText(lastItem)}>
-        <div className="swipe-deck-overlay absolute inset-0 z-10 flex flex-col overflow-hidden">
+        <div className="matchy-swipe-deck-overlay absolute inset-0 z-10 flex flex-col overflow-hidden">
           <div
             className="flex flex-1 flex-col justify-center"
             style={{
@@ -459,7 +459,7 @@ export function SwipeDeck() {
 
   return (
     <section
-      className="swipe-deck-root flex w-full flex-col overflow-hidden border border-matchy-shopping"
+      className="matchy-swipe-deck-root flex w-full flex-col overflow-hidden border border-matchy-shopping"
       aria-label="Swipe deck playground"
     >
       <div className="sr-only" aria-live="polite" aria-atomic="true">
@@ -499,15 +499,15 @@ export function SwipeDeck() {
       {phase === "deck" && current ? (
         <DeckShell
           below={
-            <div className="swipe-deck-controls">
-              <div className="swipe-deck-controls-row">
+            <div className="matchy-swipe-deck-controls">
+              <div className="matchy-swipe-deck-controls-row">
                 <Button
                   type="button"
                   size="icon-lg"
                   label="Undo last action"
                   stopPropagationOnPointerDown
                   disabled={history.length === 0}
-                  className="matchy-btn matchy-btn-icon matchy-btn--leather swipe-deck-control"
+                  className="matchy-btn matchy-btn-icon matchy-btn--leather matchy-swipe-deck-control"
                   onClick={handleUndo}
                 >
                   <MatchyIcon
@@ -523,7 +523,7 @@ export function SwipeDeck() {
                   stopPropagationOnPointerDown
                   pressed={lastAction === "dislike"}
                   data-feedback="dislike"
-                  className="matchy-btn matchy-btn-icon matchy-btn--leather swipe-deck-control"
+                  className="matchy-btn matchy-btn-icon matchy-btn--leather matchy-swipe-deck-control"
                   onClick={() => {
                     void triggerSwipe("dislike")
                   }}
@@ -541,7 +541,7 @@ export function SwipeDeck() {
                   stopPropagationOnPointerDown
                   pressed={lastAction === "like"}
                   data-feedback="like"
-                  className="matchy-btn matchy-btn-icon matchy-btn--leather swipe-deck-control"
+                  className="matchy-btn matchy-btn-icon matchy-btn--leather matchy-swipe-deck-control"
                   onClick={() => {
                     void triggerSwipe("like")
                   }}
@@ -561,7 +561,7 @@ export function SwipeDeck() {
                       : "Buy now"
                   }
                   stopPropagationOnPointerDown
-                  className="matchy-btn matchy-btn-icon matchy-btn--purchase swipe-deck-control"
+                  className="matchy-btn matchy-btn-icon matchy-btn--purchase matchy-swipe-deck-control"
                   onClick={() => {
                     void triggerSwipe("like", {
                       addToCart: true,
@@ -569,7 +569,7 @@ export function SwipeDeck() {
                     })
                   }}
                 >
-                  <span className="swipe-deck-cart-icon relative inline-flex">
+                  <span className="matchy-swipe-deck-cart-icon relative inline-flex">
                     <MatchyIcon
                       token="matchy-icon-cart"
                       size="lg"
@@ -577,7 +577,7 @@ export function SwipeDeck() {
                     />
                     {cartCount > 0 ? (
                       <span
-                        className="swipe-deck-cart-badge"
+                        className="matchy-swipe-deck-cart-badge"
                         aria-hidden="true"
                       >
                         {cartCount > 99 ? "99+" : cartCount}
@@ -589,11 +589,11 @@ export function SwipeDeck() {
             </div>
           }
         >
-          <div className="swipe-deck-stage relative h-full w-full">
+          <div className="matchy-swipe-deck-stage relative h-full w-full">
             <TinderCard
               key={current.id}
               ref={setCardApi}
-              className="swipe-deck-card absolute inset-0 z-10 h-full w-full"
+              className="matchy-swipe-deck-card absolute inset-0 z-10 h-full w-full"
               onSwipe={onSwipeStable}
               onCardLeftScreen={onCardLeftScreenStable}
               onSwipeRequirementFulfilled={onRequirementFulfilledStable}

@@ -81,7 +81,7 @@ export function HomeProductGrid({
   return (
     <div
       ref={rootRef}
-      className="matchy-home-product-grid"
+      className="matchy-marketplace-grid"
       aria-label="Marketplace products"
       style={height > 0 ? { height } : undefined}
     >

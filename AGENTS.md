@@ -27,3 +27,4 @@ If Spacing / Radii / Elevation / Motion (or similar) has no real known “why”
 
 ## Docs source of truth
 Live docs = code + Foundations/Components pages. Do **not** add loose `.md` under `docs/` (historical files stay in `docs/archive/` untouched).
+Decision / change history lives in `CHANGELOG.md` (dated entries; skip trivial copy/visual tweaks).

@@ -22,6 +22,7 @@ export type DocsPageId =
   | "avatar"
   | "save-toast"
   | "playground"
+  | "repo-governance"
 
 type NavItem = { label: string; href: string; page: DocsPageId }
 
@@ -70,7 +71,13 @@ const navSections: {
   },
   {
     title: "Team Support",
-    items: [],
+    items: [
+      {
+        label: "Repo governance",
+        href: "#repo-governance",
+        page: "repo-governance",
+      },
+    ],
   },
 ]
 

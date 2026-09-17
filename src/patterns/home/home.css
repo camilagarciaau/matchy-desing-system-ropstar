@@ -7,7 +7,7 @@
   isolation: isolate;
   min-width: 0;
   width: 100%;
-  /* Same shell height as swipe-deck-root — scroll inside for full catalog. */
+  /* Same shell height as matchy-swipe-deck-root — scroll inside for full catalog. */
   height: 42rem;
   min-height: 42rem;
   max-height: 42rem;
@@ -110,14 +110,14 @@
 }
 
 /* Marketplace Masonry grid — cards below filters (Home + Cloth). */
-.matchy-home-product-grid {
+.matchy-marketplace-grid {
   min-width: 0;
   width: 100%;
   position: relative;
 }
 
 /* Gestalt list height can collapse (translateY positions); fill wrapper instead. */
-.matchy-home-product-grid [role="list"] {
+.matchy-marketplace-grid [role="list"] {
   height: 100% !important;
 }
 
