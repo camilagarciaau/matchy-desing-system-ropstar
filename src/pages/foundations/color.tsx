@@ -88,7 +88,6 @@ export function ColorPage() {
           label: group.title,
         })),
         { id: "accessibility-heading", label: "Accessibility" },
-        { id: "swipe-overlay-heading", label: "Swipe overlay blur" },
       ]}
     >
       <section className="mt-10" aria-labelledby="palette-heading">
@@ -223,22 +222,6 @@ export function ColorPage() {
             </tbody>
           </table>
         </div>
-        <h3
-          id="swipe-overlay-heading"
-          className="mt-10 scroll-mt-48 text-lg font-semibold tracking-tight"
-        >
-          Swipe overlay blur
-        </h3>
-        <p className="mt-3 text-base leading-relaxed">
-          Onboarding and empty states in the swipe deck use a leather tint with{" "}
-          <code>backdrop-filter: blur(16px)</code> over the product photo so
-          text and CTAs stay readable. Loading nests{" "}
-          <code>LoadingScreen</code> on <code>ProductCardFace</code> with{" "}
-          <code>variant=&quot;blur&quot;</code> (same leather tint +{" "}
-          <code>backdrop-filter: blur(16px)</code>). Onboarding/empty keep the
-          pattern-level <code>swipe-deck-overlay</code>. Prefer the documented
-          typography contrast color on top of blurred media.
-        </p>
       </section>
     </DocsPage>
   )

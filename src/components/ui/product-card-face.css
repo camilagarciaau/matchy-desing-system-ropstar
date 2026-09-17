@@ -30,21 +30,122 @@
 }
 
 /*
- * Footer variant shell — applied automatically when variant="footer".
- * Tall scrim; copy pinned to the bottom so it sits in the densest part of the fade.
+ * Marketplace variant — Home / Cloth tile (former matchy-home-product*).
+ * Root uses the --marketplace modifier; anatomy classes share the face prefix.
  */
-.matchy-card-footer {
+.matchy-product-card-face--marketplace {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  min-height: 48%;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.78) 0%,
-    rgba(0, 0, 0, 0.42) 40%,
-    rgba(0, 0, 0, 0.18) 72%,
+  gap: var(--matchy-space-sm);
+  min-width: 0;
+}
+
+/* Luxury brands demo — leather ring on flagged mock items. */
+.matchy-product-card-face--marketplace-emphasized
+  .matchy-product-card-face-media {
+  box-shadow:
+    0 0 0 2px var(--matchy-color-leather),
+    var(--matchy-elevation-1);
+}
+
+.matchy-product-card-face-media {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: var(--matchy-radius-lg);
+  background-color: var(--matchy-color-background-neutral);
+}
+
+/* Soft diagonal corner blur (heart) — long falloff so the edge never reads as a cut. */
+.matchy-product-card-face-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: color-mix(in oklab, var(--matchy-color-leather) 32%, transparent);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  mask-image: radial-gradient(
+    ellipse 95% 75% at 100% 0%,
+    #000 0%,
+    rgb(0 0 0 / 0.72) 22%,
+    rgb(0 0 0 / 0.38) 48%,
+    rgb(0 0 0 / 0.12) 72%,
     transparent 100%
   );
-  padding-inline: var(--matchy-space-md);
-  padding-bottom: var(--matchy-space-md);
+  -webkit-mask-image: radial-gradient(
+    ellipse 95% 75% at 100% 0%,
+    #000 0%,
+    rgb(0 0 0 / 0.72) 22%,
+    rgb(0 0 0 / 0.38) 48%,
+    rgb(0 0 0 / 0.12) 72%,
+    transparent 100%
+  );
+}
+
+.matchy-product-card-face-media--portrait {
+  aspect-ratio: 3 / 4;
+}
+
+.matchy-product-card-face-media--tall {
+  aspect-ratio: 2 / 3;
+}
+
+.matchy-product-card-face-media--square {
+  aspect-ratio: 4 / 5;
+}
+
+.matchy-product-card-face-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.matchy-product-card-face-save {
+  position: absolute;
+  top: var(--matchy-space-sm);
+  right: var(--matchy-space-sm);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--matchy-touch-target-min);
+  min-height: var(--matchy-touch-target-min);
+  padding: 0;
+  border: none;
+  border-radius: var(--matchy-radius-full);
+  background: transparent;
+  color: var(--matchy-color-cream-beige);
+  cursor: pointer;
+}
+
+.matchy-product-card-face-save:enabled:active {
+  transform: scale(0.96);
+}
+
+.matchy-product-card-face-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--matchy-space-xs);
+  min-width: 0;
+  padding-inline: var(--matchy-space-xs);
+}
+
+.matchy-product-card-face-name {
+  margin: 0;
+  color: var(--matchy-color-typography-and-icon-default);
+  text-wrap: pretty;
+}
+
+.matchy-product-card-face-price {
+  padding-inline: var(--matchy-space-sm);
+  padding-block: var(--matchy-space-xs);
+  border-radius: var(--matchy-radius-full);
+  box-shadow: none;
 }

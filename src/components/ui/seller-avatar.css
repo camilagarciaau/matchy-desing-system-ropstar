@@ -1,0 +1,41 @@
+/* Matchy seller avatar — leather circle + yellow monogram (+ optional name). */
+
+.matchy-seller-avatar-row {
+  display: flex;
+  align-items: center;
+  gap: var(--matchy-space-sm);
+  min-width: 0;
+}
+
+.matchy-seller-avatar {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--matchy-radius-full);
+  overflow: hidden;
+  background-color: var(--matchy-color-leather);
+}
+
+.matchy-seller-avatar-logo {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+/* Full-bleed seller photo / brand mark inside the circle. */
+.matchy-seller-avatar--custom-logo .matchy-seller-avatar-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.matchy-seller-avatar-name {
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

@@ -8,8 +8,10 @@ import {
 import { DocsPage } from "@/components/docs/docs-page"
 import { Button } from "@/components/ui/button"
 import { MatchyIcon } from "@/foundations/icons"
+import { cn } from "@/lib/utils"
 
 import "@/components/patterns/swipe-deck/swipe-deck.css"
+import "@/components/ui/product-card-face.css"
 
 const sectionHeadingClass =
   "scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
@@ -61,6 +63,24 @@ const deckIconBtn =
 
 export function ButtonsPage() {
   const [likePressed, setLikePressed] = useState(false)
+  const [marketplaceSaved, setMarketplaceSaved] = useState(false)
+  const [expandActive, setExpandActive] = useState<"home" | "cloth" | "search">(
+    "home"
+  )
+
+  const expandItems = [
+    { id: "home" as const, label: "Home", icon: "matchy-icon-home" as const },
+    {
+      id: "cloth" as const,
+      label: "Cloth",
+      icon: "matchy-icon-hangers" as const,
+    },
+    {
+      id: "search" as const,
+      label: "Search",
+      icon: "matchy-icon-search" as const,
+    },
+  ]
 
   return (
     <DocsPage
@@ -119,6 +139,8 @@ export function ButtonsPage() {
                 <>
                   <code>matchy-btn-icon</code>{" "}
                   <code>matchy-btn--leather</code>
+                  <br />
+                  Swipe deck like
                 </>
               }
               preview={
@@ -149,6 +171,109 @@ export function ButtonsPage() {
   <MatchyIcon token="matchy-icon-heart" size="lg" color="white" />
 </Button>`}
             />
+            <DocsCodePreview
+              className="overflow-hidden rounded-xl border border-border"
+              previewClassName="flex flex-wrap items-center justify-start gap-4 bg-matchy-leather p-6"
+              caption={
+                <>
+                  <code>matchy-product-card-face-save</code>
+                  <br />
+                  Marketplace save heart
+                </>
+              }
+              preview={
+                <button
+                  type="button"
+                  className="matchy-product-card-face-save !static top-auto right-auto"
+                  aria-label={
+                    marketplaceSaved ? "Unsave product" : "Save product"
+                  }
+                  aria-pressed={marketplaceSaved}
+                  onClick={() => setMarketplaceSaved((value) => !value)}
+                >
+                  <MatchyIcon
+                    token="matchy-icon-heart"
+                    size="lg"
+                    color="white"
+                    fill={marketplaceSaved ? "currentColor" : "none"}
+                    aria-hidden="true"
+                  />
+                </button>
+              }
+              code={`<button
+  type="button"
+  className="matchy-product-card-face-save"
+  aria-label={saved ? \`Unsave \${name}\` : \`Save \${name}\`}
+  aria-pressed={saved}
+  onClick={toggleSaved}
+>
+  <MatchyIcon
+    token="matchy-icon-heart"
+    size="lg"
+    color="white"
+    fill={saved ? "currentColor" : "none"}
+    aria-hidden="true"
+  />
+</button>`}
+            />
+            <DocsCodePreview
+              className="overflow-hidden rounded-xl border border-border"
+              previewClassName="flex flex-wrap items-center justify-start gap-2 bg-muted/40 p-6"
+              caption={
+                <>
+                  <code>matchy-btn-expand</code>{" "}
+                  <code>matchy-btn-expand--active</code>{" "}
+                  <code>matchy-btn--leather</code>
+                </>
+              }
+              preview={
+                <div className="flex items-center gap-2 rounded-full border-[1.5px] border-matchy-leather bg-matchy-background-default p-2 shadow-[var(--matchy-elevation-1)]">
+                  {expandItems.map((item) => {
+                    const isActive = expandActive === item.id
+                    return (
+                      <Button
+                        key={item.id}
+                        type="button"
+                        variant="ghost"
+                        label={isActive ? undefined : item.label}
+                        aria-current={isActive ? "page" : undefined}
+                        onClick={() => setExpandActive(item.id)}
+                        className={cn(
+                          "matchy-btn matchy-btn-expand matchy-label-3",
+                          isActive && "matchy-btn-expand--active",
+                          isActive && "matchy-btn--leather"
+                        )}
+                      >
+                        <MatchyIcon
+                          token={item.icon}
+                          size="md"
+                          color={isActive ? "white" : "default"}
+                          aria-hidden="true"
+                        />
+                        {isActive ? <span>{item.label}</span> : null}
+                      </Button>
+                    )
+                  })}
+                </div>
+              }
+              code={`<Button
+  type="button"
+  variant="ghost"
+  label={isActive ? undefined : "Home"}
+  aria-current={isActive ? "page" : undefined}
+  className={cn(
+    "matchy-btn matchy-btn-expand matchy-label-3",
+    isActive && "matchy-btn-expand--active matchy-btn--leather"
+  )}
+>
+  <MatchyIcon
+    token="matchy-icon-home"
+    size="md"
+    color={isActive ? "white" : "default"}
+  />
+  {isActive ? <span>Home</span> : null}
+</Button>`}
+            />
           </div>
         </Subsection>
 
@@ -156,6 +281,11 @@ export function ButtonsPage() {
           <p className="mt-3 text-base leading-relaxed">
             A clickable trigger for a single action; use it for text CTAs with a
             verb + object, like &quot;Start swiping&quot; or &quot;See saves.&quot;
+            The marketplace save heart (
+            <code>matchy-product-card-face-save</code>) is a transparent icon
+            button on product media: outline when idle, filled when saved, with{" "}
+            <code>aria-pressed</code>; saving can open{" "}
+            <code>HomeSaveToast</code>.
           </p>
           <p className="mt-3 text-base leading-relaxed">
             Renders a native <code>&lt;button&gt;</code> by default, or a Radix{" "}
@@ -210,6 +340,13 @@ export function ButtonsPage() {
                   description:
                     "last resort when no fill tone has contrast. Border and text inherit the paired tone's color.",
                 },
+                {
+                  token: "expand",
+                  className: "matchy-btn matchy-btn-expand matchy-label-3",
+                  sampleBg: "bg-muted",
+                  description:
+                    "shape / behavior modifier (not a fill tone). Idle = icon only; active (matchy-btn-expand--active) = icon + label. Pair leather or purchase for the active fill. Used by Ropstar Home nav.",
+                },
               ] as const
             ).map((item) => (
               <div
@@ -219,13 +356,33 @@ export function ButtonsPage() {
                 <div
                   className={`flex items-center justify-center p-6 ${item.sampleBg}`}
                 >
-                  <Button type="button" className={item.className}>
-                    Button
-                  </Button>
+                  {item.token === "expand" ? (
+                    <Button
+                      type="button"
+                      className="matchy-btn matchy-btn-expand matchy-btn-expand--active matchy-btn--leather matchy-label-3"
+                    >
+                      <MatchyIcon
+                        token="matchy-icon-home"
+                        size="md"
+                        color="white"
+                        aria-hidden="true"
+                      />
+                      <span>Home</span>
+                    </Button>
+                  ) : (
+                    <Button type="button" className={item.className}>
+                      Button
+                    </Button>
+                  )}
                 </div>
                 <div className="border-t border-border bg-background px-4 py-3">
                   <p className="text-sm leading-relaxed">
-                    <code>matchy-btn--{item.token}</code> — {item.description}
+                    <code>
+                      {item.token === "expand"
+                        ? "matchy-btn-expand"
+                        : `matchy-btn--${item.token}`}
+                    </code>{" "}
+                    — {item.description}
                   </p>
                 </div>
               </div>
@@ -462,7 +619,7 @@ export function ButtonsPage() {
                 type: "string",
                 defaultValue: "—",
                 description:
-                  "Merged into buttonVariants({ variant, size, className }). Add matchy-btn plus modifiers by category — color (matchy-btn--primary/leather/white/purchase/line), type (matchy-btn-icon), and state (:hover, [data-pressed], disabled). Independent from the variant prop above.",
+                  "Merged into buttonVariants({ variant, size, className }). Add matchy-btn plus modifiers by category — color (matchy-btn--primary/leather/white/purchase/line), type (matchy-btn-icon, matchy-btn-expand / matchy-btn-expand--active), and state (:hover, [data-pressed], disabled). Independent from the variant prop above.",
               },
               {
                 name: "...props",

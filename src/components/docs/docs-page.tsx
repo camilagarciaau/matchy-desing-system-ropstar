@@ -95,6 +95,10 @@ export function DocsPage({
   toc?: DocsTocItem[]
   children?: ReactNode
 }) {
+  useEffect(() => {
+    document.title = `${title} — Matchy`
+  }, [title])
+
   return (
     <main
       id="main-content"

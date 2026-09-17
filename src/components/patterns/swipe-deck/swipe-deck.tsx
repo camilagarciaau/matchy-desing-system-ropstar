@@ -459,7 +459,7 @@ export function SwipeDeck() {
 
   return (
     <section
-      className="swipe-deck-root flex w-full max-w-md flex-col overflow-hidden border border-matchy-shopping"
+      className="swipe-deck-root flex w-full flex-col overflow-hidden border border-matchy-shopping"
       aria-label="Swipe deck playground"
     >
       <div className="sr-only" aria-live="polite" aria-atomic="true">

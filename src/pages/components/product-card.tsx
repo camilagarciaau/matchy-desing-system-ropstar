@@ -6,12 +6,15 @@ import {
   DocsPropsTable,
 } from "@/components/docs/docs-code-preview"
 import { DocsPage } from "@/components/docs/docs-page"
+import { marketplaceCatalog } from "@/components/patterns/home/marketplace-catalog"
 import { LoadingScreen } from "@/components/ui/loading-spinner"
 import { ProductCardFace } from "@/components/ui/product-card-face"
 import {
   fashionLoadingQuotes,
   swipeDeckInventory,
 } from "@/components/patterns/swipe-deck/mock-data"
+
+import "@/components/patterns/home/home.css"
 
 const sectionHeadingClass =
   "scroll-mt-48 text-xl font-semibold tracking-tight sm:text-2xl"
@@ -58,6 +61,7 @@ function Subsection({
 
 const sampleItem = swipeDeckInventory[0]
 const sampleQuote = fashionLoadingQuotes[0]
+const marketplaceSample = marketplaceCatalog[0]
 
 const metaFooter = (
   <div className="border-l-2 border-matchy-shopping pl-3 text-left">
@@ -79,9 +83,10 @@ export function ProductCardPage() {
       toc={[{ id: "product-card-face", label: "ProductCardFace" }]}
     >
       <p className="mt-6 text-base leading-relaxed">
-        Product photo cards hold the garment image at full bleed. Overlays
-        (onboarding tips, loading quote, empty CTA, or name/price footer) render
-        as children on top of the shell.
+        Product photo cards hold the garment image. Swipe uses a full-bleed face
+        with overlays; the marketplace grid uses{" "}
+        <code>variant=&quot;marketplace&quot;</code> — name, price pill, and a
+        save heart on a soft diagonal blur.
       </p>
 
       <ComponentSection id="product-card-face" title="ProductCardFace">
@@ -171,15 +176,46 @@ export function ProductCardPage() {
   …
 </ProductCardFace>`}
             />
+            <DocsCodePreview
+              className="overflow-hidden rounded-xl border border-border"
+              previewClassName="bg-muted/40 p-6"
+              caption={
+                <>
+                  <code>matchy-product-card-face--marketplace</code>
+                  <br />
+                  <code>variant=&quot;marketplace&quot;</code>
+                </>
+              }
+              preview={
+                <div className="mx-auto w-full max-w-[14rem]">
+                  <ProductCardFace
+                    variant="marketplace"
+                    imageUrl={marketplaceSample.imageUrl}
+                    alt={marketplaceSample.name}
+                    name={marketplaceSample.name}
+                    price={marketplaceSample.price}
+                    aspect={marketplaceSample.aspect}
+                  />
+                </div>
+              }
+              code={`<ProductCardFace
+  variant="marketplace"
+  imageUrl={item.imageUrl}
+  alt={item.name}
+  name={item.name}
+  price={item.price}
+  aspect={item.aspect}
+  onSaved={() => showSaveToast()}
+/>`}
+            />
           </div>
         </Subsection>
 
         <Subsection id="product-card-face-overview" title="2. Overview">
           <p className="mt-3 text-base leading-relaxed">
-            Full-bleed product image shell used in onboarding, loading, empty,
-            and (as the drag surface) in the active swipe deck. The photo fills
-            the card; optional <code>children</code> sit on top for chrome and
-            copy.
+            Full-bleed product image shell for swipe (onboarding, loading,
+            empty, active deck) plus the marketplace catalog tile. Optional{" "}
+            <code>children</code> sit on top for swipe chrome and copy.
           </p>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-base leading-relaxed">
             <li>
@@ -194,6 +230,11 @@ export function ProductCardPage() {
             <li>
               <code>footer</code> — applies <code>matchy-card-footer</code>{" "}
               automatically (dark scrim + name/price anchored to the bottom).
+            </li>
+            <li>
+              <code>marketplace</code> — Home / Cloth Masonry tile: diagonal
+              save blur, heart control, name, and primary price pill under the
+              photo.
             </li>
           </ul>
           <p className="mt-6 text-base leading-relaxed">
@@ -261,24 +302,59 @@ export function ProductCardPage() {
               },
               {
                 name: "variant",
-                type: '"default" | "blur" | "footer"',
+                type: '"default" | "blur" | "footer" | "marketplace"',
                 defaultValue: '"default"',
                 description:
-                  'Photo treatment. "blur" applies matchy-product-card-face--blur (leather tint + blur(16px)) for loading backgrounds. "footer" wraps children in matchy-card-footer (dark scrim + bottom-anchored meta).',
+                  'Photo treatment. "blur" applies matchy-product-card-face--blur (leather tint + blur(16px)) for loading backgrounds. "footer" wraps children in matchy-card-footer (dark scrim + bottom-anchored meta). "marketplace" renders the Home/Cloth tile (save heart, name, price pill).',
               },
               {
                 name: "children",
                 type: "ReactNode",
                 defaultValue: "undefined",
                 description:
-                  "Optional overlays: onboarding chrome, LoadingScreen, empty CTA, or meta footer copy (name/price/link when variant is footer).",
+                  "Optional overlays: onboarding chrome, LoadingScreen, empty CTA, or meta footer copy (name/price/link when variant is footer). Ignored for marketplace.",
+              },
+              {
+                name: "name",
+                type: "string",
+                defaultValue: "—",
+                description:
+                  "Marketplace only — product name under the photo (falls back to alt).",
+              },
+              {
+                name: "price",
+                type: "string",
+                defaultValue: "—",
+                description:
+                  "Marketplace only — price string for the primary pill badge.",
+              },
+              {
+                name: "aspect",
+                type: '"portrait" | "tall" | "square"',
+                defaultValue: '"portrait"',
+                description:
+                  "Marketplace only — media aspect class for Masonry variety.",
+              },
+              {
+                name: "emphasized",
+                type: "boolean",
+                defaultValue: "false",
+                description:
+                  "Marketplace only — luxury demo leather ring on the media.",
+              },
+              {
+                name: "onSaved",
+                type: "() => void",
+                defaultValue: "—",
+                description:
+                  "Marketplace only — called when the heart turns on (HomeSaveToast).",
               },
               {
                 name: "className",
                 type: "string",
                 defaultValue: "—",
                 description:
-                  "Merged onto the matchy-product-card-face root (e.g. cursor-grab on the active deck card).",
+                  "Merged onto the root (swipe face or marketplace article).",
               },
             ]}
           />
@@ -318,6 +394,12 @@ export function ProductCardPage() {
               <code>matchy-motion-instant</code> for transitions; reduced-motion
               behavior for gestures is owned by the swipe pattern, not this
               component.
+            </p>
+            <p>
+              <strong>Marketplace:</strong> save control uses{" "}
+              <code>aria-label</code> (Save / Unsave + name) and{" "}
+              <code>aria-pressed</code>; the heart icon is{" "}
+              <code>aria-hidden</code>.
             </p>
           </div>
         </Subsection>

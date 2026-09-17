@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react"
 
 import { DocsShell, type DocsPageId } from "@/components/docs/docs-shell"
+import { AvatarPage } from "@/pages/components/avatar"
 import { ButtonsPage } from "@/pages/components/buttons"
+import { FiltersPage } from "@/pages/components/filters"
 import { LoadingPage } from "@/pages/components/loading"
 import { ProductCardPage } from "@/pages/components/product-card"
+import { SaveToastPage } from "@/pages/components/save-toast"
+import { StoryCardPage } from "@/pages/components/story-card"
 import { ColorPage } from "@/pages/foundations/color"
 import { ContentPage } from "@/pages/foundations/content"
 import { ElevationPage } from "@/pages/foundations/elevation"
@@ -30,8 +34,12 @@ const pages = {
   logo: LogoPage,
   icons: IconsPage,
   buttons: ButtonsPage,
+  filters: FiltersPage,
   "product-card": ProductCardPage,
   loading: LoadingPage,
+  "story-card": StoryCardPage,
+  avatar: AvatarPage,
+  "save-toast": SaveToastPage,
   playground: PlaygroundPage,
 } as const
 

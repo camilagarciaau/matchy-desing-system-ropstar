@@ -1,0 +1,63 @@
+/* Matchy Story card + Seller Stories peek carousel. */
+
+.matchy-seller-stories {
+  display: flex;
+  flex-direction: column;
+  gap: var(--matchy-space-md);
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.matchy-seller-stories-heading {
+  margin: 0;
+  color: var(--matchy-color-typography-and-icon-default);
+}
+
+.matchy-seller-stories-track {
+  margin-left: 0 !important;
+  gap: 0;
+}
+
+/* Same peek gap as Home banners — padding-right: matchy-space-lg. */
+.matchy-seller-stories-slide {
+  flex: 0 0 auto;
+  width: 42%;
+  min-width: 8.5rem;
+  max-width: 11.5rem;
+  padding-left: 0 !important;
+  padding-right: var(--matchy-space-lg);
+  box-sizing: content-box;
+}
+
+.matchy-story-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--matchy-space-sm);
+}
+
+.matchy-story-card-media {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--matchy-radius-md);
+  aspect-ratio: 3 / 4;
+  background-color: var(--matchy-color-background-neutral);
+  /* Same full-bleed image depth as swipe ProductCardFace. */
+  box-shadow: var(--matchy-elevation-4);
+}
+
+.matchy-story-card-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.matchy-story-card-title {
+  margin: 0;
+  text-align: left;
+  text-wrap: pretty;
+}

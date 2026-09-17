@@ -1,0 +1,34 @@
+/*
+ * Shared photo scrim for full-bleed Matchy media (swipe footer + story title).
+ * Pairs with matchy-elevation-4 on the media shell.
+ */
+
+.matchy-card-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 48%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.78) 0%,
+    rgba(0, 0, 0, 0.42) 40%,
+    rgba(0, 0, 0, 0.18) 72%,
+    transparent 100%
+  );
+  padding-inline: var(--matchy-space-md);
+  padding-bottom: var(--matchy-space-md);
+}
+
+/* Inverted elevation-4 / footer scrim — densest at the top (story titles). */
+.matchy-card-footer--top {
+  justify-content: flex-start;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.78) 0%,
+    rgba(0, 0, 0, 0.42) 40%,
+    rgba(0, 0, 0, 0.18) 72%,
+    transparent 100%
+  );
+  padding-top: var(--matchy-space-md);
+  padding-bottom: 0;
+}

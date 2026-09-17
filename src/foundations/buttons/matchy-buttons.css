@@ -50,6 +50,40 @@
 }
 
 /*
+ * Expandable icon control (shape / behavior modifier).
+ * Idle: icon only, transparent fill. Active (matchy-btn-expand--active):
+ * icon + label, padded pill; pair a tone (leather / purchase) for fill.
+ * Used by Ropstar Home top nav.
+ */
+.matchy-btn-expand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--matchy-space-xs);
+  min-width: var(--matchy-touch-target-min);
+  min-height: var(--matchy-touch-target-min);
+  height: var(--matchy-touch-target-min);
+  padding-inline: var(--matchy-space-sm);
+  border: none;
+  border-radius: var(--matchy-radius-full);
+  box-shadow: none;
+  background-color: transparent;
+  color: var(--matchy-color-typography-and-icon-default);
+}
+
+.matchy-btn-expand:not(.matchy-btn-expand--active):enabled:hover {
+  background-color: color-mix(
+    in oklab,
+    var(--matchy-color-leather) 12%,
+    transparent
+  );
+}
+
+.matchy-btn-expand--active {
+  padding-inline: var(--matchy-space-md);
+}
+
+/*
  * Each fill tone exposes --matchy-btn-tone so matchy-btn--line can reuse it
  * for border/text (no manual per-instance color).
  *

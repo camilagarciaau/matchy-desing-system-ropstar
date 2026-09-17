@@ -1,0 +1,30 @@
+/* Matchy Home filters — horizontal pill toolbar. */
+
+.matchy-home-filters {
+  display: flex;
+  align-items: center;
+  gap: var(--matchy-space-sm);
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.matchy-home-filters::-webkit-scrollbar {
+  display: none;
+}
+
+.matchy-home-filter.matchy-btn {
+  flex-shrink: 0;
+  gap: var(--matchy-space-xs);
+  min-height: 2rem;
+  height: 2rem;
+  padding-block: 0;
+  padding-inline: var(--matchy-space-md);
+  box-shadow: none;
+}
+
+/* Selected Best prices / Luxury brands — solid leather fill. */
+.matchy-home-filter--active.matchy-btn {
+  border: none;
+}

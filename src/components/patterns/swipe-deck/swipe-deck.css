@@ -2,6 +2,8 @@
   --swipe-deck-motion: var(--matchy-motion-base);
   --swipe-deck-easing: var(--matchy-easing-standard);
   overflow: hidden;
+  min-width: 0;
+  width: 100%;
   background-color: var(--matchy-color-background-default);
   color: var(--matchy-color-typography-and-icon-default);
   min-height: 42rem;

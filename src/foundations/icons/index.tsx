@@ -2,6 +2,8 @@ import type { LucideIcon, LucideProps } from "lucide-react"
 import {
   Archive,
   ArrowUpDown,
+  Award,
+  BadgeCheck,
   BadgeDollarSign,
   BarChart3,
   Bell,
@@ -9,6 +11,7 @@ import {
   Camera,
   Eye,
   Heart,
+  House,
   Lock,
   MapPin,
   Menu,
@@ -47,6 +50,7 @@ export type MatchyIconColor = keyof typeof matchyIconColors
 
 /** Full Matchy icon set — map tokens to lucide-react components. */
 export const matchyIcons = {
+  "matchy-icon-home": House,
   "matchy-icon-filters": SlidersHorizontal,
   "matchy-icon-sort": ArrowUpDown,
   "matchy-icon-search": Search,
@@ -70,6 +74,8 @@ export const matchyIcons = {
   "matchy-icon-lock": Lock,
   "matchy-icon-delivery": Truck,
   "matchy-icon-shield": Shield,
+  "matchy-icon-verified": BadgeCheck,
+  "matchy-icon-award": Award,
   "matchy-icon-price-tag": BadgeDollarSign,
   /** Example-only mark used in docs samples (like/wishlist). */
   "matchy-icon-heart": Heart,
