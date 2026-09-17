@@ -4,7 +4,7 @@
 
 # Matchy
 
-Matchy is the design system behind **Ropstar Match** — a secondhand fashion discovery experience. This repo is a living docs site and playground: foundations, reusable components, and composed patterns, built as a portfolio case study rather than a published npm package.
+Matchy is the design system behind **Ropstar** — a secondhand fashion discovery experience. This repo is a living docs site and playground: foundations, reusable components, and composed patterns, built as a portfolio case study rather than a published npm package.
 
 ## Run it
 
