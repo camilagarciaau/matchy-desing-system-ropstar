@@ -1,0 +1,36 @@
+/* Save confirmation toast — fixed to bottom of Home shell (outside scroll). */
+.matchy-home-save-toast {
+  position: absolute;
+  left: var(--matchy-space-lg);
+  right: var(--matchy-space-lg);
+  bottom: var(--matchy-space-lg);
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--matchy-space-md);
+  padding: var(--matchy-space-sm);
+  padding-left: var(--matchy-space-md);
+  border-radius: var(--matchy-radius-md);
+  background-color: var(--matchy-color-leather);
+  color: var(--matchy-color-cream-beige);
+  box-shadow: var(--matchy-elevation-4);
+}
+
+.matchy-home-save-toast-copy {
+  margin: 0;
+  flex: 1 1 auto;
+  min-width: 0;
+  text-wrap: pretty;
+  color: var(--matchy-color-cream-beige);
+}
+
+.matchy-home-save-toast-action.matchy-btn {
+  flex-shrink: 0;
+  min-height: 2rem;
+  height: 2rem;
+  padding-block: 0;
+  padding-inline: var(--matchy-space-md);
+  box-shadow: none;
+  border: none;
+}

@@ -28,10 +28,6 @@
     var(--matchy-font-size-200); /* exception */
   --matchy-paragraph: var(--matchy-font-family-primary) regular
     var(--matchy-font-size-300);
-  --matchy-button-primary: var(--matchy-font-family-primary) regular
-    var(--matchy-font-size-300);
-  --matchy-button-secondary: var(--matchy-font-family-primary) bold
-    var(--matchy-font-size-100); /* exception */
 }
 
 .matchy-heading-1 {
@@ -80,22 +76,6 @@
   font-size: var(--matchy-font-size-300);
   letter-spacing: var(--matchy-letter-spacing-normal);
   line-height: var(--matchy-line-height-base);
-}
-
-.matchy-button-primary {
-  font-family: var(--matchy-font-family-primary); /* future: Degular */
-  font-weight: var(--matchy-font-weight-regular);
-  font-size: var(--matchy-font-size-300);
-  letter-spacing: var(--matchy-letter-spacing-normal);
-  line-height: var(--matchy-line-height-tight);
-}
-
-.matchy-button-secondary {
-  font-family: var(--matchy-font-family-primary); /* future: Degular */
-  font-weight: var(--matchy-font-weight-bold);
-  font-size: var(--matchy-font-size-100);
-  letter-spacing: var(--matchy-letter-spacing-normal);
-  line-height: var(--matchy-line-height-tight);
 }
 
 body {

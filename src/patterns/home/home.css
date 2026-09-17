@@ -1,0 +1,163 @@
+/* Ropstar Home — catalog browsing shell (Patterns → Playground). */
+
+.matchy-home {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+  min-width: 0;
+  width: 100%;
+  /* Same shell height as swipe-deck-root — scroll inside for full catalog. */
+  height: 42rem;
+  min-height: 42rem;
+  max-height: 42rem;
+  border-radius: var(--matchy-radius-md);
+  border: 1px solid var(--matchy-color-shopping);
+  background-color: var(--matchy-color-background-default);
+  color: var(--matchy-color-typography-and-icon-default);
+  overflow: hidden;
+}
+
+.matchy-home-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: var(--matchy-space-lg);
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: var(--matchy-space-lg);
+}
+
+/* Single outer frame around all icons — no per-item line borders. */
+.matchy-home-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--matchy-space-xs);
+  padding: var(--matchy-space-sm);
+  border: 1.5px solid var(--matchy-color-leather);
+  border-radius: var(--matchy-radius-full);
+  background-color: var(--matchy-color-background-default);
+  box-shadow: var(--matchy-elevation-1);
+}
+
+/* Rhythm: banners / stories / catalog block use space-xl;
+ * filters → marketplace stay space-lg inside .matchy-home-catalog. */
+.matchy-home-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--matchy-space-xl);
+  min-width: 0;
+}
+
+.matchy-home-catalog {
+  display: flex;
+  flex-direction: column;
+  gap: var(--matchy-space-lg);
+  min-width: 0;
+}
+
+.matchy-home-search {
+  min-width: 0;
+}
+
+/* Filter pills — Matchy radius-full + neutral surface (reference chip style). */
+/* Styles live in src/components/filters/home-filters.css (imported by HomeFilters). */
+
+.matchy-home-search-input {
+  border-radius: var(--matchy-radius-md);
+  border-width: 1px;
+  border-style: solid;
+  border-color: color-mix(in oklab, var(--matchy-color-leather) 28%, transparent);
+  background-color: var(--matchy-color-background-default);
+  box-shadow: var(--matchy-elevation-1);
+  color: var(--matchy-color-typography-and-icon-default);
+}
+
+/* Native search clear (X) — leather, not browser default blue. */
+.matchy-home-search-input::-webkit-search-cancel-button {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 0.875rem;
+  height: 0.875rem;
+  cursor: pointer;
+  background-color: var(--matchy-color-leather);
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M18 6 6 18M6 6l12 12'/%3E%3C/svg%3E");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M18 6 6 18M6 6l12 12'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+
+@media (min-width: 1024px) {
+  .matchy-home-search-input {
+    /* Desktop: keep the hairline lighter so it doesn’t read heavy at full width */
+    border-color: color-mix(in oklab, var(--matchy-color-leather) 18%, transparent);
+    min-height: 2.75rem;
+  }
+}
+
+.matchy-home-body {
+  padding-top: var(--matchy-space-xl);
+  min-height: 12rem;
+}
+
+/* Marketplace Masonry grid — cards below filters (Home + Cloth). */
+.matchy-home-product-grid {
+  min-width: 0;
+  width: 100%;
+  position: relative;
+}
+
+/* Gestalt list height can collapse (translateY positions); fill wrapper instead. */
+.matchy-home-product-grid [role="list"] {
+  height: 100% !important;
+}
+
+/* Promo banner carousel — left-aligned slide + peek of next on the right.
+ * Gap via padding-right (not flex gap) so Embla snaps stay even on every slide. */
+.matchy-home-banners {
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.matchy-home-banners-track {
+  margin-left: 0 !important;
+  gap: 0;
+}
+
+.matchy-home-banners-slide {
+  flex: 0 0 auto;
+  width: 85%;
+  min-width: 0;
+  padding-left: 0 !important;
+  padding-right: var(--matchy-space-lg);
+  box-sizing: content-box;
+}
+
+.matchy-home-banner {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--matchy-radius-md);
+  user-select: none;
+  -webkit-user-drag: none;
+  transition: opacity var(--matchy-motion-base) var(--matchy-easing-standard);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .matchy-home-banner {
+    transition: var(--matchy-motion-instant);
+  }
+}
